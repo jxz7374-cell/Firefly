@@ -1,0 +1,9 @@
+{
+  "name": "student-score-system",
+  "version": "1.0.0",
+  "description": "Student score management system with a C core and Node.js web UI.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
