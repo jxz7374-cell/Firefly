@@ -4,26 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>学生成绩管理系统</title>
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
   <div class="page-shell">
     <header class="hero">
       <div>
-        <p class="eyebrow">C Core + Web Dashboard</p>
+        <p class="eyebrow">Static Demo + C Coursework</p>
         <h1>学生成绩管理系统</h1>
         <p class="hero-text">
-          网页负责交互，C 语言负责成绩管理、统计分析和文本持久化，适合作为课程作业展示。
+          这个版本可以直接部署到免费静态网站。网页负责交互与展示，C 语言源码保留在项目中作为课程作业核心实现。
         </p>
       </div>
       <div class="hero-panel">
         <div class="hero-metric">
-          <span>数据文件</span>
-          <strong>students.txt</strong>
+          <span>存储方式</span>
+          <strong>浏览器本地保存</strong>
         </div>
         <div class="hero-metric">
-          <span>核心语言</span>
-          <strong>C / Node.js</strong>
+          <span>适合部署</span>
+          <strong>GitHub Pages</strong>
         </div>
       </div>
     </header>
@@ -32,7 +32,7 @@
       <section class="card">
         <div class="section-head">
           <h2>新增学生</h2>
-          <p>录入学号、姓名和三门课程成绩。</p>
+          <p>录入学号、姓名和三门课程成绩，数据会自动保存在当前浏览器中。</p>
         </div>
         <form id="add-form" class="grid-form">
           <input name="id" placeholder="学号" required>
@@ -47,7 +47,7 @@
       <section class="card">
         <div class="section-head">
           <h2>查询与修改</h2>
-          <p>支持按学号精确查询，按姓名模糊查询，也可以直接修改信息。</p>
+          <p>支持按学号精确查询、按姓名模糊查询，也可以直接修改基本信息和单科成绩。</p>
         </div>
         <div class="search-row">
           <select id="search-type">
@@ -55,8 +55,8 @@
             <option value="name">按姓名</option>
           </select>
           <input id="search-keyword" placeholder="输入学号或姓名">
-          <button id="search-btn" class="secondary">查询</button>
-          <button id="reload-btn" class="ghost">重置</button>
+          <button id="search-btn" class="secondary" type="button">查询</button>
+          <button id="reload-btn" class="ghost" type="button">重置</button>
         </div>
         <form id="update-form" class="update-row">
           <input name="id" placeholder="目标学号" required>
@@ -65,7 +65,7 @@
             <option value="id">修改学号</option>
             <option value="math">修改高数</option>
             <option value="english">修改英语</option>
-            <option value="c_language">修改C语言</option>
+            <option value="cLanguage">修改C语言</option>
           </select>
           <input name="value" placeholder="新的值" required>
           <button type="submit" class="secondary">提交修改</button>
@@ -76,6 +76,10 @@
         <div class="section-head">
           <h2>学生列表</h2>
           <p>显示总分和平均 GPA，支持删除记录。</p>
+        </div>
+        <div class="toolbar">
+          <button id="reset-seed-btn" class="ghost" type="button">恢复示例数据</button>
+          <button id="export-btn" class="ghost" type="button">导出数据</button>
         </div>
         <div class="table-wrap">
           <table>
@@ -144,6 +148,6 @@
   </div>
 
   <div id="toast" class="toast"></div>
-  <script src="/app.js"></script>
+  <script src="./app.js"></script>
 </body>
 </html>
