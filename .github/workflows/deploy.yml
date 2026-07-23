@@ -3,7 +3,9 @@ name: Deploy Blog to GitHub Pages
 on:
   # 每次推送到 main 分支时，自动重新部署博客
   push:
-    branches: ["main"]
+    # 你的仓库现在可能用 main，也可能用 master
+    # 两个都监听，避免因为分支名不同导致工作流不触发
+    branches: ["main", "master"]
 
   # 允许你在 GitHub 网页里手动点一下重新部署
   workflow_dispatch:
