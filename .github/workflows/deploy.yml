@@ -1,0 +1,65 @@
+name: Deploy Blog to GitHub Pages
+
+on:
+  # 每次推送到 main 分支时，自动重新部署博客
+  push:
+    branches: ["main"]
+
+  # 允许你在 GitHub 网页里手动点一下重新部署
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  # 防止同一时间重复部署，后来的任务会接管
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.14.4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "pnpm"
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build Site
+        run: pnpm build
+
+      - name: Upload Static Files
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Astro 构建完成后的静态文件目录
+          path: ./dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,19 @@
+<svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="nickLogoBg" x1="20" y1="14" x2="130" y2="146" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5B15A" />
+      <stop offset="1" stop-color="#D66A28" />
+    </linearGradient>
+  </defs>
+  <rect width="160" height="160" rx="42" fill="url(#nickLogoBg)" />
+  <path d="M36 49L60 18L72 58L36 49Z" fill="#A84E1E" />
+  <path d="M124 49L100 18L88 58L124 49Z" fill="#A84E1E" />
+  <path d="M80 132C110.376 132 135 107.376 135 77C135 46.6243 110.376 22 80 22C49.6243 22 25 46.6243 25 77C25 107.376 49.6243 132 80 132Z" fill="#F29A4A" />
+  <path d="M56 56C61.5228 56 66 51.5228 66 46C66 40.4772 61.5228 36 56 36C50.4772 36 46 40.4772 46 46C46 51.5228 50.4772 56 56 56Z" fill="#FFE7C1" />
+  <path d="M104 56C109.523 56 114 51.5228 114 46C114 40.4772 109.523 36 104 36C98.4772 36 94 40.4772 94 46C94 51.5228 98.4772 56 104 56Z" fill="#FFE7C1" />
+  <path d="M80 126C95.464 126 108 113.464 108 98H52C52 113.464 64.536 126 80 126Z" fill="#FFF3E5" />
+  <circle cx="60" cy="77" r="6" fill="#3B2415" />
+  <circle cx="100" cy="77" r="6" fill="#3B2415" />
+  <path d="M80 86L73 96H87L80 86Z" fill="#5A2F19" />
+  <path d="M65 107C70.3333 112.333 89.6667 112.333 95 107" stroke="#A84E1E" stroke-width="6" stroke-linecap="round" />
+</svg>
