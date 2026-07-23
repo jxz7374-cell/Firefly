@@ -25,6 +25,11 @@ const TMDB_LIST_ID = animeConfig?.tmdb?.listId;
 const BILIBILI_UID = animeConfig?.bilibili?.uid;
 const TMDB_IMG = "https://image.tmdb.org/t/p/w500";
 
+// 在 GitHub Actions 这类 CI 环境里，海外服务器有时无法稳定访问 Bilibili。
+// 为了保证博客能先成功部署，我们在 CI 中优先使用本地缓存/降级逻辑，
+// 避免“追番页接口偶发失败”把整个站点构建拖垮。
+const IS_CI_BUILD = process.env.CI === "true" || process.env.GITHUB_ACTIONS === "true";
+
 // ============ 类型定义 ============
 
 interface TmdbItem {
@@ -122,6 +127,13 @@ if (TMDB_API_KEY && TMDB_LIST_ID) {
 let bilibiliItems: BilibiliItem[] = [];
 if (BILIBILI_UID) {
 	try {
+		if (IS_CI_BUILD) {
+			console.warn(
+				"[Anime] CI build detected. Skip live Bilibili requests to keep deployment stable.",
+			);
+			throw new Error("Skip live Bilibili requests during CI build");
+		}
+
 		console.log(`[Anime] Fetching Bilibili list for UID: ${BILIBILI_UID}...`);
 		const ps = 30;
 
