@@ -36,7 +36,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           cache: "pnpm"
 
       - name: Configure GitHub Pages
@@ -45,8 +45,17 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build Site
-        run: pnpm build
+      - name: Generate LQIP Cache
+        run: pnpm exec tsx scripts/generate-lqips.ts
+
+      - name: Build Astro Site
+        run: pnpm exec astro build
+
+      - name: Subset Fonts
+        run: pnpm exec tsx scripts/subset-fonts.ts
+
+      - name: Build Search Index
+        run: pnpm exec pagefind --site dist
 
       - name: Upload Static Files
         uses: actions/upload-pages-artifact@v3
