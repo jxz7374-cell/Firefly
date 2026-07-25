@@ -11,6 +11,7 @@ const repoDefaults = {
 	repo: "Firefly",
 	branch: "master",
 	contentDir: "src/content/posts",
+	assetDir: "public/uploads",
 };
 
 // 新文章默认使用今天日期，和博客文章常见写法保持一致。
@@ -144,6 +145,54 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 
 					<div class="card-base-transparent admin-panel p-5 md:p-6">
 						<div class="flex items-center gap-2 mb-4">
+							<Icon is:inline name="material-symbols:drive-folder-upload-outline-rounded" class="text-[1.5rem] text-(--primary)" />
+							<h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">上传任意文件</h2>
+						</div>
+
+						<label class="admin-field">
+							<span>上传目录</span>
+							<input id="admin-upload-dir" class="admin-input" type="text" value={repoDefaults.assetDir} autocomplete="off" />
+							<small class="admin-help">
+								这里建议保持 <code>public/uploads</code>。因为放在 <code>public</code> 目录里的文件，上传后才能直接通过网站链接打开。
+							</small>
+						</label>
+
+						<label class="admin-field mt-4">
+							<span>选择任意本地文件</span>
+							<input id="any-local-file" class="admin-input admin-file-input" type="file" />
+							<small class="admin-help">
+								这里不限制文件类型。图片、PDF、压缩包、Word、Excel 等文件都可以直接上传。
+							</small>
+						</label>
+
+						<label class="admin-field mt-4">
+							<span>上传后的文件名</span>
+							<input
+								id="any-file-name"
+								class="admin-input"
+								type="text"
+								placeholder="默认使用你选中的原文件名"
+								autocomplete="off"
+							/>
+							<small class="admin-help">
+								如果你不想改名，这里可以留空。系统会自动使用原文件名，并尽量保留原扩展名。
+							</small>
+						</label>
+
+						<div class="flex flex-wrap gap-3 mt-5">
+							<button id="admin-upload-any-file" class="btn-regular rounded-xl px-4 py-2.5 font-semibold active:scale-95">
+								直接上传这个文件
+							</button>
+						</div>
+
+						<div class="mt-4 rounded-2xl bg-neutral-500/5 px-4 py-4 text-sm leading-7 text-neutral-600 dark:text-neutral-400">
+							<p>这个区域适合上传附件资源，比如头像、文章配图、PDF、压缩包等。</p>
+							<p>如果你想让它显示成博客文章，还是要用上面的 Markdown 文章上传或“新增文章”。</p>
+						</div>
+					</div>
+
+					<div class="card-base-transparent admin-panel p-5 md:p-6">
+						<div class="flex items-center gap-2 mb-4">
 							<Icon is:inline name="material-symbols:post-add-rounded" class="text-[1.5rem] text-(--primary)" />
 							<h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">新增文章</h2>
 						</div>
@@ -229,6 +278,36 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 							<p>如果文章已经创建成功，但列表这次刷新失败了，再点一次“刷新列表”通常就能恢复。</p>
 						</div>
 					</div>
+
+					<div class="card-base-transparent admin-panel p-5 md:p-6">
+						<div class="flex items-center justify-between gap-3 mb-4 flex-wrap">
+							<div class="flex items-center gap-2">
+								<Icon is:inline name="material-symbols:folder-copy-outline-rounded" class="text-[1.5rem] text-(--primary)" />
+								<h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">已上传文件</h2>
+							</div>
+							<button id="admin-refresh-uploads" class="btn-card rounded-xl px-4 py-2.5 font-semibold text-(--primary) active:scale-95">
+								刷新文件列表
+							</button>
+						</div>
+
+						<div class="mt-4 rounded-2xl border border-(--line-divider) overflow-hidden">
+							<div class="admin-list-head">
+								<span>文件</span>
+								<span>操作</span>
+							</div>
+							<div id="admin-upload-list" class="admin-post-list">
+								<div class="admin-empty">
+									<Icon is:inline name="material-symbols:folder-open-outline-rounded" class="text-[2rem] text-(--primary) mb-2" />
+									<p>读取成功后，这里会显示你上传到网站里的附件文件。</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="mt-4 rounded-2xl bg-neutral-500/5 px-4 py-4 text-sm leading-7 text-neutral-600 dark:text-neutral-400">
+							<p>这里显示的是上传到 <code>public</code> 目录里的站点文件，不是博客文章。</p>
+							<p>删除后，这个文件的网页链接也会失效。</p>
+						</div>
+					</div>
 				</section>
 			</div>
 		</div>
@@ -253,11 +332,13 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 			repo: document.getElementById("admin-repo"),
 			branch: document.getElementById("admin-branch"),
 			contentDir: document.getElementById("admin-content-dir"),
+			uploadDir: document.getElementById("admin-upload-dir"),
 			token: document.getElementById("admin-token"),
 			saveSettingsButton: document.getElementById("admin-save-settings"),
 			loadPostsButton: document.getElementById("admin-load-posts"),
 			clearTokenButton: document.getElementById("admin-clear-token"),
 			refreshPostsButton: document.getElementById("admin-refresh-posts"),
+			refreshUploadsButton: document.getElementById("admin-refresh-uploads"),
 			createPostButton: document.getElementById("admin-create-post"),
 			fillTemplateButton: document.getElementById("admin-fill-template"),
 			postTitle: document.getElementById("post-title"),
@@ -272,6 +353,10 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 			importFileName: document.getElementById("import-file-name"),
 			importToFormButton: document.getElementById("admin-import-to-form"),
 			uploadFileDirectButton: document.getElementById("admin-upload-file-direct"),
+			uploadList: document.getElementById("admin-upload-list"),
+			anyLocalFile: document.getElementById("any-local-file"),
+			anyFileName: document.getElementById("any-file-name"),
+			uploadAnyFileButton: document.getElementById("admin-upload-any-file"),
 		};
 
 		let fileNameTouchedByUser = false;
@@ -300,6 +385,7 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 				repo: elements.repo?.value.trim() || repoDefaults.repo,
 				branch: elements.branch?.value.trim() || repoDefaults.branch,
 				contentDir: elements.contentDir?.value.trim() || repoDefaults.contentDir,
+				assetDir: elements.uploadDir?.value.trim() || repoDefaults.assetDir,
 				token: elements.token?.value.trim() || "",
 			};
 		}
@@ -331,6 +417,9 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 				if (elements.contentDir) {
 					elements.contentDir.value = saved.contentDir || repoDefaults.contentDir;
 				}
+				if (elements.uploadDir) {
+					elements.uploadDir.value = saved.assetDir || repoDefaults.assetDir;
+				}
 				if (elements.token) elements.token.value = saved.token || "";
 			} catch (error) {
 				console.warn("无法读取已保存的后台设置。", error);
@@ -354,6 +443,19 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 			bytes.forEach((byte) => {
 				binary += String.fromCharCode(byte);
 			});
+			return btoa(binary);
+		}
+
+		// 任意文件可能是图片或压缩包，不能按文本读取，所以这里单独处理二进制内容。
+		function encodeBase64Bytes(bytes) {
+			let binary = "";
+			const chunkSize = 0x8000;
+
+			for (let index = 0; index < bytes.length; index += chunkSize) {
+				const chunk = bytes.subarray(index, index + chunkSize);
+				binary += String.fromCharCode(...chunk);
+			}
+
 			return btoa(binary);
 		}
 
@@ -382,6 +484,32 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 			if (!match) return "";
 			const [, year, month, day] = match;
 			return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
+		}
+
+		// 目录只允许普通相对路径，避免误传到奇怪的位置。
+		function normalizeDirectoryPath(pathText, fallbackValue, options = {}) {
+			const { requirePublic = false } = options;
+			const fallback = String(fallbackValue || "").trim();
+			const rawValue = String(pathText || fallback).trim().replace(/\\/g, "/");
+			const segments = rawValue
+				.split("/")
+				.map((item) => item.trim())
+				.filter(Boolean);
+
+			if (segments.length === 0) {
+				throw new Error("上传目录不能为空。");
+			}
+
+			if (segments.some((item) => item === "." || item === "..")) {
+				throw new Error("上传目录里不能包含 . 或 .. 这样的路径写法。");
+			}
+
+			const normalized = segments.join("/");
+			if (requirePublic && normalized !== "public" && !normalized.startsWith("public/")) {
+				throw new Error("任意文件上传目录必须放在 public 开头的目录里，例如 public/uploads。");
+			}
+
+			return normalized;
 		}
 
 		function parseTitleFromMarkdown(markdownText, filePath) {
@@ -454,6 +582,18 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 			return cleaned;
 		}
 
+		function normalizeAssetFileName(fileName) {
+			let cleaned = String(fileName || "").trim().replace(/\\/g, "/");
+			cleaned = cleaned.split("/").filter(Boolean).pop() || "";
+			cleaned = safeFileNamePart(cleaned);
+
+			if (!cleaned) {
+				throw new Error("上传后的文件名不能为空。");
+			}
+
+			return cleaned;
+		}
+
 		function fileNameWithoutExtension(fileName) {
 			return fileName.replace(/\.(md|mdx|txt)$/i, "");
 		}
@@ -475,6 +615,38 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 			return new Promise((resolve) => {
 				window.setTimeout(resolve, ms);
 			});
+		}
+
+		function getUploadDirFromSettings(settings) {
+			return normalizeDirectoryPath(settings.assetDir, repoDefaults.assetDir, {
+				requirePublic: true,
+			});
+		}
+
+		function getSiteBasePath() {
+			const currentPath = window.location.pathname;
+
+			if (currentPath.endsWith("/admin/")) {
+				return currentPath.slice(0, -"/admin/".length) || "/";
+			}
+
+			if (currentPath.endsWith("/admin")) {
+				return currentPath.slice(0, -"/admin".length) || "/";
+			}
+
+			return "/";
+		}
+
+		function joinUrlPath(basePath, childPath) {
+			const safeBase = basePath.endsWith("/") ? basePath : `${basePath}/`;
+			const safeChild = String(childPath || "").replace(/^\/+/, "");
+			return `${safeBase}${safeChild}`.replace(/\/{2,}/g, "/");
+		}
+
+		function buildPublicFileUrl(repoPath) {
+			const siteRelativePath = String(repoPath || "").replace(/^public\/+/, "");
+			const sitePath = joinUrlPath(getSiteBasePath(), siteRelativePath);
+			return `${window.location.origin}${sitePath}`;
 		}
 
 		function normalizeAdminError(error, fallbackMessage) {
@@ -547,7 +719,7 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 			return data;
 		}
 
-		async function fetchPostFiles(settings) {
+		async function fetchRepositoryTree(settings) {
 			const branchRef = await githubRequest(
 				settings,
 				`/git/ref/heads/${encodeURIComponent(settings.branch)}`,
@@ -558,13 +730,22 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 				`/git/trees/${commitInfo.tree.sha}?recursive=1`,
 			);
 
-			return (treeInfo.tree || []).filter((item) => {
-				return (
-					item.type === "blob" &&
-					item.path.startsWith(`${settings.contentDir}/`) &&
-					/\.(md|mdx)$/i.test(item.path)
-				);
-			});
+			return treeInfo.tree || [];
+		}
+
+		function getUploadedFilesFromTree(tree, uploadDir) {
+			return tree
+				.filter((item) => item.type === "blob" && item.path.startsWith(`${uploadDir}/`))
+				.map((item) => {
+					const fileName = item.path.split("/").pop() || item.path;
+					return {
+						name: fileName,
+						path: item.path,
+						sha: item.sha,
+						url: buildPublicFileUrl(item.path),
+					};
+				})
+				.sort((a, b) => a.path.localeCompare(b.path));
 		}
 
 		async function fetchSinglePostMeta(settings, filePath) {
@@ -614,6 +795,53 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 									data-delete-path="${escapeAttribute(post.path)}"
 									data-delete-sha="${escapeAttribute(post.sha)}"
 									data-delete-title="${escapeAttribute(post.title)}"
+								>
+									删除
+								</button>
+							</div>
+						</div>
+					`;
+				})
+				.join("");
+		}
+
+		function renderUploadedFiles(files) {
+			if (!elements.uploadList) return;
+
+			if (files.length === 0) {
+				elements.uploadList.innerHTML = `
+					<div class="admin-empty">
+						<p>当前上传目录里还没有文件，你可以先上传一个试试。</p>
+					</div>
+				`;
+				return;
+			}
+
+			elements.uploadList.innerHTML = files
+				.map((file) => {
+					return `
+						<div class="admin-post-row">
+							<div class="admin-post-main">
+								<div class="admin-post-title">${escapeHtml(file.name)}</div>
+								<div class="admin-post-path">${escapeHtml(file.path)}</div>
+								<div class="admin-post-meta">
+									<a
+										href="${escapeAttribute(file.url)}"
+										target="_blank"
+										rel="noreferrer"
+										class="underline underline-offset-4"
+									>
+										打开文件链接
+									</a>
+								</div>
+							</div>
+							<div class="admin-post-actions">
+								<button
+									type="button"
+									class="btn-card rounded-xl px-4 py-2 text-red-500 hover:text-red-600 active:scale-95"
+									data-delete-upload-path="${escapeAttribute(file.path)}"
+									data-delete-upload-sha="${escapeAttribute(file.sha)}"
+									data-delete-upload-name="${escapeAttribute(file.name)}"
 								>
 									删除
 								</button>
@@ -767,17 +995,46 @@ ${body}
 			return { file, text };
 		}
 
+		async function readSelectedGenericFile() {
+			const input = elements.anyLocalFile;
+			if (!(input instanceof HTMLInputElement) || !input.files || input.files.length === 0) {
+				throw new Error("请先选择一个要上传的本地文件。");
+			}
+
+			const file = input.files[0];
+			const buffer = await file.arrayBuffer();
+			return {
+				file,
+				bytes: new Uint8Array(buffer),
+			};
+		}
+
 		async function loadPosts(options = {}) {
 			const settings = readSettingsFromForm();
-			const { afterCreate = false, afterDelete = false, afterUpload = false } = options;
+			const {
+				afterCreate = false,
+				afterDelete = false,
+				afterUpload = false,
+				afterAssetUpload = false,
+				afterAssetDelete = false,
+			} = options;
 
 			try {
 				validateSettings(settings);
+				const uploadDir = getUploadDirFromSettings(settings);
 				setButtonBusy(elements.loadPostsButton, "读取中...", true);
 				setButtonBusy(elements.refreshPostsButton, "刷新中...", true);
+				setButtonBusy(elements.refreshUploadsButton, "刷新中...", true);
 				setStatus("正在读取 GitHub 上的文章列表...", "info");
 
-				const files = await fetchPostFiles(settings);
+				const tree = await fetchRepositoryTree(settings);
+				const files = tree.filter((item) => {
+					return (
+						item.type === "blob" &&
+						item.path.startsWith(`${settings.contentDir}/`) &&
+						/\.(md|mdx)$/i.test(item.path)
+					);
+				});
 				const postMetaResults = await Promise.allSettled(
 					files.map((file) => fetchSinglePostMeta(settings, file.path)),
 				);
@@ -793,6 +1050,8 @@ ${body}
 				});
 
 				renderPosts(postMetaList);
+				const uploadedFiles = getUploadedFilesFromTree(tree, uploadDir);
+				renderUploadedFiles(uploadedFiles);
 
 				if (failedCount > 0) {
 					setStatus(
@@ -803,7 +1062,7 @@ ${body}
 				}
 
 				if (afterUpload) {
-					setStatus(`文件已经上传成功了，当前列表里一共看到 ${postMetaList.length} 篇文章。`, "success");
+					setStatus(`Markdown 文件已经上传成功了，当前列表里一共看到 ${postMetaList.length} 篇文章。`, "success");
 					return;
 				}
 
@@ -817,13 +1076,29 @@ ${body}
 					return;
 				}
 
-				setStatus(`读取完成，现在一共找到 ${postMetaList.length} 篇文章。`, "success");
+				if (afterAssetUpload) {
+					setStatus(
+						`文件已经上传成功了。现在上传目录里共有 ${uploadedFiles.length} 个文件，可以直接点“打开文件链接”查看。`,
+						"success",
+					);
+					return;
+				}
+
+				if (afterAssetDelete) {
+					setStatus(`文件已经删除成功了。现在上传目录里还剩 ${uploadedFiles.length} 个文件。`, "success");
+					return;
+				}
+
+				setStatus(
+					`读取完成，现在一共找到 ${postMetaList.length} 篇文章，上传目录里有 ${uploadedFiles.length} 个文件。`,
+					"success",
+				);
 			} catch (error) {
 				console.error(error);
-				const message = normalizeAdminError(error, "读取文章列表失败。");
+				const message = normalizeAdminError(error, "读取后台列表失败。");
 
 				if (afterUpload) {
-					setStatus(`文件其实已经上传成功了，只是刷新列表时出了点问题：${message}`, "warning");
+					setStatus(`Markdown 文件其实已经上传成功了，只是刷新列表时出了点问题：${message}`, "warning");
 					return;
 				}
 
@@ -837,10 +1112,21 @@ ${body}
 					return;
 				}
 
+				if (afterAssetUpload) {
+					setStatus(`文件其实已经上传成功了，只是刷新文件列表时出了点问题：${message}`, "warning");
+					return;
+				}
+
+				if (afterAssetDelete) {
+					setStatus(`文件其实已经删除成功了，只是刷新文件列表时出了点问题：${message}`, "warning");
+					return;
+				}
+
 				setStatus(message, "error");
 			} finally {
 				setButtonBusy(elements.loadPostsButton, "读取中...", false);
 				setButtonBusy(elements.refreshPostsButton, "刷新中...", false);
+				setButtonBusy(elements.refreshUploadsButton, "刷新中...", false);
 			}
 		}
 
@@ -928,6 +1214,44 @@ ${body}
 			}
 		}
 
+		async function uploadGenericFile() {
+			const settings = readSettingsFromForm();
+
+			try {
+				validateSettings(settings);
+				const uploadDir = getUploadDirFromSettings(settings);
+				const { file, bytes } = await readSelectedGenericFile();
+				const fileName = normalizeAssetFileName(
+					elements.anyFileName?.value.trim() || file.name,
+				);
+				const filePath = `${uploadDir}/${fileName}`;
+				const fileUrl = buildPublicFileUrl(filePath);
+
+				setButtonBusy(elements.uploadAnyFileButton, "上传中...", true);
+				setStatus("正在把这个文件上传到 GitHub 仓库...", "info");
+
+				await githubRequest(settings, `/contents/${encodeRepoPath(filePath)}`, {
+					method: "PUT",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify({
+						message: `feat: upload file ${fileName}`,
+						content: encodeBase64Bytes(bytes),
+						branch: settings.branch,
+					}),
+				});
+
+				await loadPosts({ afterAssetUpload: true });
+				setStatus(`文件上传成功，链接是：${fileUrl}`, "success");
+			} catch (error) {
+				console.error(error);
+				setStatus(normalizeAdminError(error, "上传任意文件失败。"), "error");
+			} finally {
+				setButtonBusy(elements.uploadAnyFileButton, "上传中...", false);
+			}
+		}
+
 		async function importLocalFileToForm() {
 			try {
 				setButtonBusy(elements.importToFormButton, "读取中...", true);
@@ -950,14 +1274,14 @@ ${body}
 			}
 		}
 
-		async function deletePost(path, sha, title) {
+		async function deleteRepositoryFile(path, sha, title, kind) {
 			const settings = readSettingsFromForm();
 
 			try {
 				validateSettings(settings);
 
 				const confirmed = window.confirm(
-					`确定要删除这篇文章吗？\n\n${title}\n${path}\n\n删除后，仓库里的这个文件会被直接移除。`,
+					`确定要删除这个${kind}吗？\n\n${title}\n${path}\n\n删除后，仓库里的这个文件会被直接移除。`,
 				);
 
 				if (!confirmed) {
@@ -972,36 +1296,66 @@ ${body}
 						"Content-Type": "application/json",
 					},
 					body: JSON.stringify({
-						message: `chore: delete post ${title}`,
+						message: kind === "文章" ? `chore: delete post ${title}` : `chore: delete file ${title}`,
 						sha,
 						branch: settings.branch,
 					}),
 				});
 
-				await loadPosts({ afterDelete: true });
+				if (kind === "文章") {
+					await loadPosts({ afterDelete: true });
+					return;
+				}
+
+				await loadPosts({ afterAssetDelete: true });
 			} catch (error) {
 				console.error(error);
-				setStatus(normalizeAdminError(error, "删除文章失败。"), "error");
+				const fallbackMessage = kind === "文章" ? "删除文章失败。" : "删除文件失败。";
+				setStatus(normalizeAdminError(error, fallbackMessage), "error");
 			}
 		}
 
+		async function deletePost(path, sha, title) {
+			return deleteRepositoryFile(path, sha, title, "文章");
+		}
+
+		async function deleteUploadedFile(path, sha, fileName) {
+			return deleteRepositoryFile(path, sha, fileName, "文件");
+		}
+
 		function bindDeleteButtons() {
-			if (!elements.postList) return;
+			const bindDeleteList = (container) => {
+				if (!container) return;
 
-			elements.postList.addEventListener("click", (event) => {
-				const target = event.target;
-				if (!(target instanceof Element)) return;
+				container.addEventListener("click", (event) => {
+					const target = event.target;
+					if (!(target instanceof Element)) return;
 
-				const deleteButton = target.closest("[data-delete-path]");
-				if (!deleteButton) return;
+					const deleteButton = target.closest("[data-delete-path]");
+					if (deleteButton) {
+						const path = deleteButton.getAttribute("data-delete-path") || "";
+						const sha = deleteButton.getAttribute("data-delete-sha") || "";
+						const title = deleteButton.getAttribute("data-delete-title") || "未命名文章";
 
-				const path = deleteButton.getAttribute("data-delete-path") || "";
-				const sha = deleteButton.getAttribute("data-delete-sha") || "";
-				const title = deleteButton.getAttribute("data-delete-title") || "未命名文章";
+						if (!path || !sha) return;
+						deletePost(path, sha, title);
+						return;
+					}
 
-				if (!path || !sha) return;
-				deletePost(path, sha, title);
-			});
+					const deleteUploadButton = target.closest("[data-delete-upload-path]");
+					if (!deleteUploadButton) return;
+
+					const path = deleteUploadButton.getAttribute("data-delete-upload-path") || "";
+					const sha = deleteUploadButton.getAttribute("data-delete-upload-sha") || "";
+					const fileName = deleteUploadButton.getAttribute("data-delete-upload-name") || "未命名文件";
+
+					if (!path || !sha) return;
+					deleteUploadedFile(path, sha, fileName);
+				});
+			};
+
+			bindDeleteList(elements.postList);
+			bindDeleteList(elements.uploadList);
 		}
 
 		function bindFileNameSuggestion() {
@@ -1036,26 +1390,39 @@ ${body}
 		}
 
 		function bindLocalFileHelpers() {
-			if (!(elements.localFile instanceof HTMLInputElement)) return;
+			if (elements.localFile instanceof HTMLInputElement) {
+				elements.localFile.addEventListener("change", () => {
+					const file = elements.localFile.files?.[0];
+					if (!file) return;
 
-			elements.localFile.addEventListener("change", () => {
-				const file = elements.localFile.files?.[0];
-				if (!file) return;
+					if (elements.importFileName && !elements.importFileName.value.trim()) {
+						elements.importFileName.value = file.name;
+					}
+				});
+			}
 
-				if (elements.importFileName && !elements.importFileName.value.trim()) {
-					elements.importFileName.value = file.name;
-				}
-			});
+			if (elements.anyLocalFile instanceof HTMLInputElement) {
+				elements.anyLocalFile.addEventListener("change", () => {
+					const file = elements.anyLocalFile.files?.[0];
+					if (!file) return;
+
+					if (elements.anyFileName && !elements.anyFileName.value.trim()) {
+						elements.anyFileName.value = file.name;
+					}
+				});
+			}
 		}
 
 		function bindActions() {
 			elements.saveSettingsButton?.addEventListener("click", saveSettingsToBrowser);
 			elements.loadPostsButton?.addEventListener("click", () => loadPosts());
 			elements.refreshPostsButton?.addEventListener("click", () => loadPosts());
+			elements.refreshUploadsButton?.addEventListener("click", () => loadPosts());
 			elements.clearTokenButton?.addEventListener("click", clearSavedToken);
 			elements.createPostButton?.addEventListener("click", createPost);
 			elements.importToFormButton?.addEventListener("click", importLocalFileToForm);
 			elements.uploadFileDirectButton?.addEventListener("click", uploadLocalFileDirectly);
+			elements.uploadAnyFileButton?.addEventListener("click", uploadGenericFile);
 		}
 
 		function init() {
