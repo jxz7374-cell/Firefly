@@ -109,6 +109,12 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 				icon: "material-symbols:person",
 			},
 			{
+				name: "文章管理",
+				// 这是新加的站内后台页，以后你可以直接在网页里增删文章
+				url: "/admin/",
+				icon: "material-symbols:edit-square-outline-rounded",
+			},
+			{
 				name: "主题文档",
 				url: "https://docs-firefly.cuteleaf.cn",
 				external: true,
@@ -186,6 +192,11 @@ export const LinkPresets: Record<string, NavBarLink> = {
 		name: "关于我",
 		url: "/about/",
 		icon: "material-symbols:person",
+	},
+	Admin: {
+		name: "文章管理",
+		url: "/admin/",
+		icon: "material-symbols:edit-square-outline-rounded",
 	},
 	Bangumi: {
 		name: "番组计划",
