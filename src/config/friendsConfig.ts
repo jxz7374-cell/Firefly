@@ -24,7 +24,7 @@ export const friendsPageConfig: FriendsPageConfig = {
 export const friendsConfig: FriendLink[] = [
 	{
 		title: "尼克狐尼克",
-		imgurl: "/assets/images/nick-avatar.svg",
+		imgurl: "/assets/images/nick-avatar.jpg",
 		desc: "记录文章、日常和灵感的个人博客。",
 		siteurl: "https://jxz7374-cell.github.io/Firefly/",
 		tags: ["Blog"],

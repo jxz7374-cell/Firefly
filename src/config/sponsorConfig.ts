@@ -62,7 +62,7 @@ export const sponsorConfig: SponsorConfig = {
 		// 示例：已实名打赏者
 		{
 			name: "尼克狐尼克",
-			avatar: "/assets/images/nick-avatar.svg",
+			avatar: "/assets/images/nick-avatar.jpg",
 			amount: "¥50",
 			date: "2025-10-01",
 		},
