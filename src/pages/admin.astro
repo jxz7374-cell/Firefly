@@ -101,145 +101,157 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 					</div>
 
 					<div class="card-base-transparent admin-panel p-5 md:p-6">
-						<div class="flex items-center gap-2 mb-4">
-							<Icon is:inline name="material-symbols:upload-file-outline-rounded" class="text-[1.5rem] text-(--primary)" />
-							<h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">直接添加文件</h2>
+						<div class="flex items-center gap-2 mb-3">
+							<Icon is:inline name="material-symbols:library-add-outline-rounded" class="text-[1.5rem] text-(--primary)" />
+							<h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">内容发布</h2>
 						</div>
 
-						<label class="admin-field">
-							<span>选择本地 Markdown 文件</span>
-							<input id="local-markdown-file" class="admin-input admin-file-input" type="file" accept=".md,.mdx,.txt" />
-							<small class="admin-help">
-								可以直接选择你电脑里的 <code>.md</code>、<code>.mdx</code> 或 <code>.txt</code> 文件。
-							</small>
-						</label>
-
-						<label class="admin-field mt-4">
-							<span>上传后的文件名</span>
-							<input
-								id="import-file-name"
-								class="admin-input"
-								type="text"
-								placeholder="默认会使用你选中的文件名"
-								autocomplete="off"
-							/>
-							<small class="admin-help">
-								如果你不想改，就留空，系统会自动使用本地文件名。
-							</small>
-						</label>
-
-						<div class="flex flex-wrap gap-3 mt-5">
-							<button id="admin-import-to-form" class="btn-card rounded-xl px-4 py-2.5 font-semibold text-(--primary) active:scale-95">
-								读入下面表单
-							</button>
-							<button id="admin-upload-file-direct" class="btn-regular rounded-xl px-4 py-2.5 font-semibold active:scale-95">
-								直接上传这个文件
-							</button>
+						<div class="rounded-2xl bg-neutral-500/5 px-4 py-4 text-sm leading-7 text-neutral-600 dark:text-neutral-400">
+							<p>这里已经把“直接添加文件”“上传任意文件”“新增文章”合成一个区域了。</p>
+							<p>你只需要按下面三个小块来用：导入 Markdown、上传附件、创建文章。</p>
 						</div>
 
-						<div class="mt-4 rounded-2xl bg-neutral-500/5 px-4 py-4 text-sm leading-7 text-neutral-600 dark:text-neutral-400">
-							<p>“读入下面表单”适合你想先检查标题、日期、标签，再决定上传。</p>
-							<p>“直接上传这个文件”适合你本地 Markdown 已经写好了，想一步传上去。</p>
-						</div>
-					</div>
+						<div class="admin-section-block mt-5">
+							<div class="flex items-center gap-2 mb-4">
+								<Icon is:inline name="material-symbols:upload-file-outline-rounded" class="text-[1.3rem] text-(--primary)" />
+								<h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100">1. 导入 Markdown 文件</h3>
+							</div>
 
-					<div class="card-base-transparent admin-panel p-5 md:p-6">
-						<div class="flex items-center gap-2 mb-4">
-							<Icon is:inline name="material-symbols:drive-folder-upload-outline-rounded" class="text-[1.5rem] text-(--primary)" />
-							<h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">上传任意文件</h2>
-						</div>
-
-						<label class="admin-field">
-							<span>上传目录</span>
-							<input id="admin-upload-dir" class="admin-input" type="text" value={repoDefaults.assetDir} autocomplete="off" />
-							<small class="admin-help">
-								这里建议保持 <code>public/uploads</code>。因为放在 <code>public</code> 目录里的文件，上传后才能直接通过网站链接打开。
-							</small>
-						</label>
-
-						<label class="admin-field mt-4">
-							<span>选择任意本地文件</span>
-							<input id="any-local-file" class="admin-input admin-file-input" type="file" />
-							<small class="admin-help">
-								这里不限制文件类型。图片、PDF、压缩包、Word、Excel 等文件都可以直接上传。
-							</small>
-						</label>
-
-						<label class="admin-field mt-4">
-							<span>上传后的文件名</span>
-							<input
-								id="any-file-name"
-								class="admin-input"
-								type="text"
-								placeholder="默认使用你选中的原文件名"
-								autocomplete="off"
-							/>
-							<small class="admin-help">
-								如果你不想改名，这里可以留空。系统会自动使用原文件名，并尽量保留原扩展名。
-							</small>
-						</label>
-
-						<div class="flex flex-wrap gap-3 mt-5">
-							<button id="admin-upload-any-file" class="btn-regular rounded-xl px-4 py-2.5 font-semibold active:scale-95">
-								直接上传这个文件
-							</button>
-						</div>
-
-						<div class="mt-4 rounded-2xl bg-neutral-500/5 px-4 py-4 text-sm leading-7 text-neutral-600 dark:text-neutral-400">
-							<p>这个区域适合上传附件资源，比如头像、文章配图、PDF、压缩包等。</p>
-							<p>如果你想让它显示成博客文章，还是要用上面的 Markdown 文章上传或“新增文章”。</p>
-						</div>
-					</div>
-
-					<div class="card-base-transparent admin-panel p-5 md:p-6">
-						<div class="flex items-center gap-2 mb-4">
-							<Icon is:inline name="material-symbols:post-add-rounded" class="text-[1.5rem] text-(--primary)" />
-							<h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">新增文章</h2>
-						</div>
-
-						<div class="grid gap-4 md:grid-cols-2">
-							<label class="admin-field md:col-span-2">
-								<span>文章标题</span>
-								<input id="post-title" class="admin-input" type="text" placeholder="例如：我的第一篇博客文章" autocomplete="off" />
-							</label>
 							<label class="admin-field">
-								<span>发布日期</span>
-								<input id="post-published" class="admin-input" type="date" value={initialPublishedDate} />
+								<span>选择本地 Markdown 文件</span>
+								<input id="local-markdown-file" class="admin-input admin-file-input" type="file" accept=".md,.mdx,.txt" />
+								<small class="admin-help">
+									可以直接选择你电脑里的 <code>.md</code>、<code>.mdx</code> 或 <code>.txt</code> 文件。
+								</small>
 							</label>
-							<label class="admin-field">
-								<span>分类</span>
-								<input id="post-category" class="admin-input" type="text" placeholder="例如：日常" autocomplete="off" />
+
+							<label class="admin-field mt-4">
+								<span>上传后的文件名</span>
+								<input
+									id="import-file-name"
+									class="admin-input"
+									type="text"
+									placeholder="默认会使用你选中的文件名"
+									autocomplete="off"
+								/>
+								<small class="admin-help">
+									如果你不想改，就留空，系统会自动使用本地文件名。
+								</small>
 							</label>
-							<label class="admin-field md:col-span-2">
-								<span>文章简介</span>
-								<input id="post-description" class="admin-input" type="text" placeholder="首页列表里显示的简短说明" autocomplete="off" />
-							</label>
-							<label class="admin-field md:col-span-2">
-								<span>标签</span>
-								<input id="post-tags" class="admin-input" type="text" placeholder="多个标签用英文逗号隔开，例如：日常, 学习, 记录" autocomplete="off" />
-							</label>
-							<label class="admin-field md:col-span-2">
-								<span>文件名</span>
-								<input id="post-file-name" class="admin-input" type="text" placeholder="会根据标题自动生成，也可以自己改" autocomplete="off" />
-								<small class="admin-help">这个文件名会决定文章链接地址。不想管它也没关系，输入标题后会自动生成。</small>
-							</label>
-							<label class="admin-check md:col-span-2">
-								<input id="post-draft" type="checkbox" />
-								<span>先保存为草稿，不在前台公开显示</span>
-							</label>
-							<label class="admin-field md:col-span-2">
-								<span>正文内容</span>
-								<textarea id="post-body" class="admin-textarea" rows="14" placeholder="在这里写文章正文。支持普通 Markdown 语法。"></textarea>
-							</label>
+
+							<div class="flex flex-wrap gap-3 mt-5">
+								<button id="admin-import-to-form" class="btn-card rounded-xl px-4 py-2.5 font-semibold text-(--primary) active:scale-95">
+									读入文章表单
+								</button>
+								<button id="admin-upload-file-direct" class="btn-regular rounded-xl px-4 py-2.5 font-semibold active:scale-95">
+									直接上传为文章
+								</button>
+							</div>
+
+							<div class="mt-4 rounded-2xl bg-neutral-500/5 px-4 py-4 text-sm leading-7 text-neutral-600 dark:text-neutral-400">
+								<p>“读入文章表单”适合你先检查标题、日期、标签，再决定发布。</p>
+								<p>“直接上传为文章”适合你本地 Markdown 已经写好了，想一步传上去。</p>
+							</div>
 						</div>
 
-						<div class="flex flex-wrap gap-3 mt-5">
-							<button id="admin-create-post" class="btn-regular rounded-xl px-4 py-2.5 font-semibold active:scale-95">
-								创建文章
-							</button>
-							<button id="admin-fill-template" class="btn-card rounded-xl px-4 py-2.5 font-semibold text-(--primary) active:scale-95">
-								填入示例正文
-							</button>
+						<div class="admin-section-block mt-5">
+							<div class="flex items-center gap-2 mb-4">
+								<Icon is:inline name="material-symbols:drive-folder-upload-outline-rounded" class="text-[1.3rem] text-(--primary)" />
+								<h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100">2. 上传任意附件</h3>
+							</div>
+
+							<label class="admin-field">
+								<span>上传目录</span>
+								<input id="admin-upload-dir" class="admin-input" type="text" value={repoDefaults.assetDir} autocomplete="off" />
+								<small class="admin-help">
+									这里建议保持 <code>public/uploads</code>。因为放在 <code>public</code> 目录里的文件，上传后才能直接通过网站链接打开。
+								</small>
+							</label>
+
+							<label class="admin-field mt-4">
+								<span>选择任意本地文件</span>
+								<input id="any-local-file" class="admin-input admin-file-input" type="file" />
+								<small class="admin-help">
+									这里不限制文件类型。图片、PDF、压缩包、Word、Excel 等文件都可以直接上传。
+								</small>
+							</label>
+
+							<label class="admin-field mt-4">
+								<span>上传后的文件名</span>
+								<input
+									id="any-file-name"
+									class="admin-input"
+									type="text"
+									placeholder="默认使用你选中的原文件名"
+									autocomplete="off"
+								/>
+								<small class="admin-help">
+									如果你不想改名，这里可以留空。系统会自动使用原文件名，并尽量保留原扩展名。
+								</small>
+							</label>
+
+							<div class="flex flex-wrap gap-3 mt-5">
+								<button id="admin-upload-any-file" class="btn-regular rounded-xl px-4 py-2.5 font-semibold active:scale-95">
+									直接上传附件
+								</button>
+							</div>
+
+							<div class="mt-4 rounded-2xl bg-neutral-500/5 px-4 py-4 text-sm leading-7 text-neutral-600 dark:text-neutral-400">
+								<p>这个区域适合上传头像、文章配图、PDF、压缩包等附件资源。</p>
+								<p>附件不会自动变成博客文章，它们更适合当下载文件或素材使用。</p>
+							</div>
+						</div>
+
+						<div class="admin-section-block mt-5">
+							<div class="flex items-center gap-2 mb-4">
+								<Icon is:inline name="material-symbols:post-add-rounded" class="text-[1.3rem] text-(--primary)" />
+								<h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100">3. 新增文章</h3>
+							</div>
+
+							<div class="grid gap-4 md:grid-cols-2">
+								<label class="admin-field md:col-span-2">
+									<span>文章标题</span>
+									<input id="post-title" class="admin-input" type="text" placeholder="例如：我的第一篇博客文章" autocomplete="off" />
+								</label>
+								<label class="admin-field">
+									<span>发布日期</span>
+									<input id="post-published" class="admin-input" type="date" value={initialPublishedDate} />
+								</label>
+								<label class="admin-field">
+									<span>分类</span>
+									<input id="post-category" class="admin-input" type="text" placeholder="例如：日常" autocomplete="off" />
+								</label>
+								<label class="admin-field md:col-span-2">
+									<span>文章简介</span>
+									<input id="post-description" class="admin-input" type="text" placeholder="首页列表里显示的简短说明" autocomplete="off" />
+								</label>
+								<label class="admin-field md:col-span-2">
+									<span>标签</span>
+									<input id="post-tags" class="admin-input" type="text" placeholder="多个标签用英文逗号隔开，例如：日常, 学习, 记录" autocomplete="off" />
+								</label>
+								<label class="admin-field md:col-span-2">
+									<span>文件名</span>
+									<input id="post-file-name" class="admin-input" type="text" placeholder="会根据标题自动生成，也可以自己改" autocomplete="off" />
+									<small class="admin-help">这个文件名会决定文章链接地址。不想管它也没关系，输入标题后会自动生成。</small>
+								</label>
+								<label class="admin-check md:col-span-2">
+									<input id="post-draft" type="checkbox" />
+									<span>先保存为草稿，不在前台公开显示</span>
+								</label>
+								<label class="admin-field md:col-span-2">
+									<span>正文内容</span>
+									<textarea id="post-body" class="admin-textarea" rows="14" placeholder="在这里写文章正文。支持普通 Markdown 语法。"></textarea>
+								</label>
+							</div>
+
+							<div class="flex flex-wrap gap-3 mt-5">
+								<button id="admin-create-post" class="btn-regular rounded-xl px-4 py-2.5 font-semibold active:scale-95">
+									创建文章
+								</button>
+								<button id="admin-fill-template" class="btn-card rounded-xl px-4 py-2.5 font-semibold text-(--primary) active:scale-95">
+									填入示例正文
+								</button>
+							</div>
 						</div>
 					</div>
 				</section>
@@ -1478,6 +1490,13 @@ ${body}
 	.admin-help {
 		color: var(--content-meta);
 		line-height: 1.5;
+	}
+
+	.admin-section-block {
+		padding: 1rem;
+		border-radius: 1.25rem;
+		border: 1px solid color-mix(in srgb, var(--line-divider) 72%, transparent);
+		background: color-mix(in srgb, var(--page-bg) 45%, var(--card-bg));
 	}
 
 	.admin-input,
