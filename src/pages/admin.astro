@@ -3,9 +3,9 @@ import { Icon } from "astro-icon/components";
 import MainGridLayout from "@/layouts/MainGridLayout.astro";
 
 const title = "文章管理";
-const description = "直接在网页里新增和删除博客文章";
+const description = "直接在网页里新增、导入、查看和删除博客文章。";
 
-// 这里先把当前仓库的信息写成默认值，后面你如果换仓库，直接改这里或者在网页里改都可以。
+// 这些默认值会自动填进页面里，后面如果你换仓库，改这里或在网页里改都可以。
 const repoDefaults = {
 	owner: "jxz7374-cell",
 	repo: "Firefly",
@@ -13,7 +13,7 @@ const repoDefaults = {
 	contentDir: "src/content/posts",
 };
 
-// 新文章默认用今天的日期，和博客文章常见写法保持一致。
+// 新文章默认使用今天日期，和博客文章常见写法保持一致。
 const initialPublishedDate = new Date().toISOString().slice(0, 10);
 ---
 
@@ -32,7 +32,7 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 					<div>
 						<h1 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100">{title}</h1>
 						<p class="text-sm md:text-base text-neutral-600 dark:text-neutral-400 mt-1">
-							以后你就在这个页面里新增、查看、删除文章，不用再去代码文件夹里找文章。
+							以后你就在这个页面里新增、导入、查看、删除文章，不用再去代码文件夹里翻文章。
 						</p>
 					</div>
 				</div>
@@ -40,10 +40,10 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 				<div class="rounded-2xl border border-(--primary)/20 bg-(--primary)/8 px-4 py-4 text-sm md:text-[0.97rem] leading-7 text-neutral-700 dark:text-neutral-300">
 					<p class="font-semibold text-(--primary)">第一次使用前，只要做这 3 步：</p>
 					<p>1. 去 GitHub 创建一个个人访问令牌（Personal Access Token）。</p>
-					<p>2. 令牌至少给这个仓库的 <code>Contents: Read and write</code> 权限。</p>
+					<p>2. 给这个仓库至少开通 <code>Contents: Read and write</code> 权限。</p>
 					<p>3. 把令牌粘贴到下面，保存后就能直接管理文章。</p>
 					<p class="mt-2 text-xs md:text-sm opacity-80">
-						安全提醒：令牌只会保存在你当前浏览器的本地，不会公开显示到博客页面里。
+						安全提醒：令牌只保存在你当前浏览器本地，不会直接显示到博客前台。
 					</p>
 				</div>
 			</div>
@@ -101,6 +101,49 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 
 					<div class="card-base-transparent admin-panel p-5 md:p-6">
 						<div class="flex items-center gap-2 mb-4">
+							<Icon is:inline name="material-symbols:upload-file-outline-rounded" class="text-[1.5rem] text-(--primary)" />
+							<h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">直接添加文件</h2>
+						</div>
+
+						<label class="admin-field">
+							<span>选择本地 Markdown 文件</span>
+							<input id="local-markdown-file" class="admin-input admin-file-input" type="file" accept=".md,.mdx,.txt" />
+							<small class="admin-help">
+								可以直接选择你电脑里的 <code>.md</code>、<code>.mdx</code> 或 <code>.txt</code> 文件。
+							</small>
+						</label>
+
+						<label class="admin-field mt-4">
+							<span>上传后的文件名</span>
+							<input
+								id="import-file-name"
+								class="admin-input"
+								type="text"
+								placeholder="默认会使用你选中的文件名"
+								autocomplete="off"
+							/>
+							<small class="admin-help">
+								如果你不想改，就留空，系统会自动使用本地文件名。
+							</small>
+						</label>
+
+						<div class="flex flex-wrap gap-3 mt-5">
+							<button id="admin-import-to-form" class="btn-card rounded-xl px-4 py-2.5 font-semibold text-(--primary) active:scale-95">
+								读入下面表单
+							</button>
+							<button id="admin-upload-file-direct" class="btn-regular rounded-xl px-4 py-2.5 font-semibold active:scale-95">
+								直接上传这个文件
+							</button>
+						</div>
+
+						<div class="mt-4 rounded-2xl bg-neutral-500/5 px-4 py-4 text-sm leading-7 text-neutral-600 dark:text-neutral-400">
+							<p>“读入下面表单”适合你想先检查标题、日期、标签，再决定上传。</p>
+							<p>“直接上传这个文件”适合你本地 Markdown 已经写好了，想一步传上去。</p>
+						</div>
+					</div>
+
+					<div class="card-base-transparent admin-panel p-5 md:p-6">
+						<div class="flex items-center gap-2 mb-4">
 							<Icon is:inline name="material-symbols:post-add-rounded" class="text-[1.5rem] text-(--primary)" />
 							<h2 class="text-xl font-bold text-neutral-900 dark:text-neutral-100">新增文章</h2>
 						</div>
@@ -128,8 +171,8 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 							</label>
 							<label class="admin-field md:col-span-2">
 								<span>文件名</span>
-								<input id="post-file-name" class="admin-input" type="text" placeholder="会根据标题自动生成，可自行修改" autocomplete="off" />
-								<small class="admin-help">这个文件名会决定文章链接地址。不会写也没关系，标题输入后会自动帮你生成。</small>
+								<input id="post-file-name" class="admin-input" type="text" placeholder="会根据标题自动生成，也可以自己改" autocomplete="off" />
+								<small class="admin-help">这个文件名会决定文章链接地址。不想管它也没关系，输入标题后会自动生成。</small>
 							</label>
 							<label class="admin-check md:col-span-2">
 								<input id="post-draft" type="checkbox" />
@@ -176,14 +219,14 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 							<div id="admin-post-list" class="admin-post-list">
 								<div class="admin-empty">
 									<Icon is:inline name="material-symbols:folder-managed-outline-rounded" class="text-[2rem] text-(--primary) mb-2" />
-									<p>读取成功后，这里会显示当前博客文章。</p>
+									<p>读取成功后，这里会显示你当前博客里的文章。</p>
 								</div>
 							</div>
 						</div>
 
 						<div class="mt-4 rounded-2xl bg-neutral-500/5 px-4 py-4 text-sm leading-7 text-neutral-600 dark:text-neutral-400">
-							<p>删除文章后，GitHub Pages 通常需要 1 到 3 分钟重新部署。</p>
-							<p>如果你刚新增或删除完文章，刷新列表前可以稍等几秒钟。</p>
+							<p>新增或删除文章后，GitHub Pages 通常需要 1 到 3 分钟重新部署。</p>
+							<p>如果文章已经创建成功，但列表这次刷新失败了，再点一次“刷新列表”通常就能恢复。</p>
 						</div>
 					</div>
 				</section>
@@ -200,10 +243,9 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 	}}
 >
 	(() => {
-		// 用 localStorage 记住配置，这样你下次打开页面不用重新输入。
-		const STORAGE_KEY = "nick-fox-blog-admin-settings-v1";
+		const STORAGE_KEY = "nick-fox-blog-admin-settings-v2";
 
-		// 页面里要反复用到的元素，统一收起来，后面代码会更清楚。
+		// 统一收集页面上会反复用到的元素，后面代码更清楚。
 		const elements = {
 			status: document.getElementById("admin-status"),
 			postList: document.getElementById("admin-post-list"),
@@ -226,6 +268,10 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 			postFileName: document.getElementById("post-file-name"),
 			postDraft: document.getElementById("post-draft"),
 			postBody: document.getElementById("post-body"),
+			localFile: document.getElementById("local-markdown-file"),
+			importFileName: document.getElementById("import-file-name"),
+			importToFormButton: document.getElementById("admin-import-to-form"),
+			uploadFileDirectButton: document.getElementById("admin-upload-file-direct"),
 		};
 
 		let fileNameTouchedByUser = false;
@@ -270,7 +316,7 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 		function saveSettingsToBrowser() {
 			const settings = readSettingsFromForm();
 			localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
-			setStatus("设置已保存到当前浏览器。", "success");
+			setStatus("设置已经保存到当前浏览器。", "success");
 		}
 
 		function loadSavedSettings() {
@@ -279,14 +325,15 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 
 			try {
 				const saved = JSON.parse(savedText);
-				elements.owner && (elements.owner.value = saved.owner || repoDefaults.owner);
-				elements.repo && (elements.repo.value = saved.repo || repoDefaults.repo);
-				elements.branch && (elements.branch.value = saved.branch || repoDefaults.branch);
-				elements.contentDir &&
-					(elements.contentDir.value = saved.contentDir || repoDefaults.contentDir);
-				elements.token && (elements.token.value = saved.token || "");
+				if (elements.owner) elements.owner.value = saved.owner || repoDefaults.owner;
+				if (elements.repo) elements.repo.value = saved.repo || repoDefaults.repo;
+				if (elements.branch) elements.branch.value = saved.branch || repoDefaults.branch;
+				if (elements.contentDir) {
+					elements.contentDir.value = saved.contentDir || repoDefaults.contentDir;
+				}
+				if (elements.token) elements.token.value = saved.token || "";
 			} catch (error) {
-				console.warn("无法读取已保存的后台设置：", error);
+				console.warn("无法读取已保存的后台设置。", error);
 			}
 		}
 
@@ -297,10 +344,10 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 			if (elements.token) {
 				elements.token.value = "";
 			}
-			setStatus("令牌已清除。", "info");
+			setStatus("令牌已经清除。", "info");
 		}
 
-		// GitHub API 传中文内容时，普通 btoa 不够用，所以这里单独做一个 UTF-8 版本。
+		// GitHub API 遇到中文正文时，普通 btoa 不够用，所以这里手动转成 UTF-8。
 		function encodeBase64Utf8(text) {
 			const bytes = new TextEncoder().encode(text);
 			let binary = "";
@@ -326,7 +373,15 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 		}
 
 		function normalizeDisplayValue(value) {
-			return (value || "").replace(/^['"]|['"]$/g, "").trim();
+			return String(value || "").replace(/^['"]|['"]$/g, "").trim();
+		}
+
+		function normalizeDateValue(value) {
+			const cleaned = String(value || "").trim().replace(/\//g, "-");
+			const match = cleaned.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+			if (!match) return "";
+			const [, year, month, day] = match;
+			return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
 		}
 
 		function parseTitleFromMarkdown(markdownText, filePath) {
@@ -336,7 +391,7 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 
 		function parsePublishedFromMarkdown(markdownText) {
 			const publishedMatch = markdownText.match(/^published:\s*(.+)$/m);
-			return normalizeDisplayValue(publishedMatch?.[1]);
+			return normalizeDateValue(normalizeDisplayValue(publishedMatch?.[1]));
 		}
 
 		function splitTags(tagText) {
@@ -348,7 +403,6 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 
 		function buildExampleBody() {
 			return `## 开头
-
 今天想记录一点自己的内容。
 
 ## 正文
@@ -362,7 +416,7 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 写完后点击“创建文章”，等 GitHub Pages 部署完成就能在前台看到。`;
 		}
 
-		// 这个函数负责把标题变成比较安全的文件名，避免出现 Windows 和 GitHub 都不喜欢的特殊字符。
+		// 这个函数负责把标题变成比较安全的文件名，避免出现特殊字符。
 		function safeFileNamePart(text) {
 			return text
 				.trim()
@@ -386,8 +440,6 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 
 		function normalizeFileName(fileName) {
 			let cleaned = fileName.trim().replace(/\\/g, "/");
-
-			// 为了让操作尽量简单，这里只保留单层文件名，不让新手一开始就碰多层目录。
 			cleaned = cleaned.split("/").filter(Boolean).pop() || "";
 			cleaned = safeFileNamePart(cleaned);
 
@@ -395,26 +447,91 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 				throw new Error("文件名不能为空。");
 			}
 
-			if (!cleaned.endsWith(".md")) {
+			if (!/\.(md|mdx)$/i.test(cleaned)) {
 				cleaned += ".md";
 			}
 
 			return cleaned;
 		}
 
-		async function githubRequest(settings, endpoint, options = {}) {
-			const response = await fetch(
-				`https://api.github.com/repos/${encodeURIComponent(settings.owner)}/${encodeURIComponent(settings.repo)}${endpoint}`,
-				{
-					...options,
-					headers: {
-						Accept: "application/vnd.github+json",
-						Authorization: `Bearer ${settings.token}`,
-						"X-GitHub-Api-Version": "2022-11-28",
-						...(options.headers || {}),
+		function fileNameWithoutExtension(fileName) {
+			return fileName.replace(/\.(md|mdx|txt)$/i, "");
+		}
+
+		function escapeHtml(text) {
+			return String(text)
+				.replace(/&/g, "&amp;")
+				.replace(/</g, "&lt;")
+				.replace(/>/g, "&gt;")
+				.replace(/"/g, "&quot;")
+				.replace(/'/g, "&#39;");
+		}
+
+		function escapeAttribute(text) {
+			return escapeHtml(text);
+		}
+
+		function wait(ms) {
+			return new Promise((resolve) => {
+				window.setTimeout(resolve, ms);
+			});
+		}
+
+		function normalizeAdminError(error, fallbackMessage) {
+			if (error instanceof DOMException && error.name === "AbortError") {
+				return "连接 GitHub 超时了。可以等几秒后再试一次。";
+			}
+
+			if (error instanceof TypeError && /Failed to fetch/i.test(error.message)) {
+				return "浏览器这次没连上 GitHub。通常只是网络波动，不一定代表文章没创建成功。";
+			}
+
+			return error instanceof Error ? error.message : fallbackMessage;
+		}
+
+		async function fetchGithubResponse(settings, endpoint, options = {}) {
+			const controller = new AbortController();
+			const timeoutId = window.setTimeout(() => controller.abort(), 20000);
+
+			try {
+				return await fetch(
+					`https://api.github.com/repos/${encodeURIComponent(settings.owner)}/${encodeURIComponent(settings.repo)}${endpoint}`,
+					{
+						...options,
+						signal: controller.signal,
+						headers: {
+							Accept: "application/vnd.github+json",
+							Authorization: `Bearer ${settings.token}`,
+							"X-GitHub-Api-Version": "2022-11-28",
+							...(options.headers || {}),
+						},
 					},
-				},
-			);
+				);
+			} finally {
+				window.clearTimeout(timeoutId);
+			}
+		}
+
+		async function githubRequest(settings, endpoint, options = {}) {
+			let response;
+
+			// 网络偶尔抖一下时，自动再试一次，减少误报。
+			for (let attempt = 0; attempt < 2; attempt++) {
+				try {
+					response = await fetchGithubResponse(settings, endpoint, options);
+					break;
+				} catch (error) {
+					const isRetryableNetworkError =
+						error instanceof TypeError ||
+						(error instanceof DOMException && error.name === "AbortError");
+
+					if (!isRetryableNetworkError || attempt === 1) {
+						throw error;
+					}
+
+					await wait(800);
+				}
+			}
 
 			if (response.status === 204) {
 				return null;
@@ -471,7 +588,7 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 			if (posts.length === 0) {
 				elements.postList.innerHTML = `
 					<div class="admin-empty">
-						<p>目前还没有文章，你可以先在左边创建第一篇。</p>
+						<p>目前还没有文章，你可以先创建第一篇。</p>
 					</div>
 				`;
 				return;
@@ -480,7 +597,7 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 			elements.postList.innerHTML = posts
 				.map((post) => {
 					const publishedText = post.published
-						? `<div class="admin-post-meta">发布日期：${post.published}</div>`
+						? `<div class="admin-post-meta">发布日期：${escapeHtml(post.published)}</div>`
 						: "";
 
 					return `
@@ -507,48 +624,83 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 				.join("");
 		}
 
-		function escapeHtml(text) {
-			return String(text)
-				.replace(/&/g, "&amp;")
-				.replace(/</g, "&lt;")
-				.replace(/>/g, "&gt;")
-				.replace(/"/g, "&quot;")
-				.replace(/'/g, "&#39;");
+		function setPostFormValues({
+			title: postTitle = "",
+			published = initialPublishedDate,
+			description = "",
+			category = "",
+			tags = [],
+			draft = false,
+			body = "",
+			fileName = "",
+		}) {
+			if (elements.postTitle) elements.postTitle.value = postTitle;
+			if (elements.postPublished) elements.postPublished.value = normalizeDateValue(published) || initialPublishedDate;
+			if (elements.postDescription) elements.postDescription.value = description;
+			if (elements.postCategory) elements.postCategory.value = category;
+			if (elements.postTags) elements.postTags.value = tags.join(", ");
+			if (elements.postDraft) elements.postDraft.checked = Boolean(draft);
+			if (elements.postBody) elements.postBody.value = body.trim();
+
+			fileNameTouchedByUser = Boolean(fileName);
+			if (elements.postFileName) {
+				elements.postFileName.value = fileName || suggestFileName();
+			}
 		}
 
-		function escapeAttribute(text) {
-			return escapeHtml(text);
-		}
+		function parseFrontmatterValue(rawValue) {
+			const trimmed = rawValue.trim();
 
-		async function loadPosts() {
-			const settings = readSettingsFromForm();
+			if (!trimmed) return "";
+			if (trimmed === "true") return true;
+			if (trimmed === "false") return false;
+
+			if (trimmed.startsWith("[") && trimmed.endsWith("]")) {
+				try {
+					return JSON.parse(trimmed.replace(/'/g, '"'));
+				} catch {
+					return trimmed
+						.slice(1, -1)
+						.split(",")
+						.map((item) => normalizeDisplayValue(item))
+						.filter(Boolean);
+				}
+			}
 
 			try {
-				validateSettings(settings);
-				setButtonBusy(elements.loadPostsButton, "读取中...", true);
-				setButtonBusy(elements.refreshPostsButton, "刷新中...", true);
-				setStatus("正在读取 GitHub 上的文章列表...", "info");
-
-				const files = await fetchPostFiles(settings);
-				const postMetaList = await Promise.all(
-					files.map((file) => fetchSinglePostMeta(settings, file.path)),
-				);
-
-				postMetaList.sort((a, b) => {
-					const dateA = a.published || "";
-					const dateB = b.published || "";
-					return dateA < dateB ? 1 : dateA > dateB ? -1 : a.path.localeCompare(b.path);
-				});
-
-				renderPosts(postMetaList);
-				setStatus(`读取完成，现在共有 ${postMetaList.length} 篇文章。`, "success");
-			} catch (error) {
-				console.error(error);
-				setStatus(error instanceof Error ? error.message : "读取文章列表失败。", "error");
-			} finally {
-				setButtonBusy(elements.loadPostsButton, "读取中...", false);
-				setButtonBusy(elements.refreshPostsButton, "刷新中...", false);
+				return JSON.parse(trimmed);
+			} catch {
+				return normalizeDisplayValue(trimmed);
 			}
+		}
+
+		function parseMarkdownFile(markdownText, fallbackFileName) {
+			const frontmatterMatch = markdownText.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?/);
+			const body = frontmatterMatch
+				? markdownText.slice(frontmatterMatch[0].length).trim()
+				: markdownText.trim();
+			const data = {};
+
+			if (frontmatterMatch) {
+				for (const line of frontmatterMatch[1].split(/\r?\n/)) {
+					const match = line.match(/^([A-Za-z0-9_]+):\s*(.*)$/);
+					if (!match) continue;
+					const [, key, value] = match;
+					data[key] = parseFrontmatterValue(value);
+				}
+			}
+
+			const titleFromFile = fileNameWithoutExtension(fallbackFileName).replace(/[-_]+/g, " ");
+			return {
+				title: String(data.title || titleFromFile).trim(),
+				published: normalizeDateValue(String(data.published || initialPublishedDate)) || initialPublishedDate,
+				description: String(data.description || "").trim(),
+				category: String(data.category || "").trim(),
+				tags: Array.isArray(data.tags) ? data.tags.map((item) => String(item).trim()).filter(Boolean) : [],
+				draft: Boolean(data.draft),
+				body,
+				fileName: normalizeFileName(fallbackFileName),
+			};
 		}
 
 		function buildMarkdownContent() {
@@ -572,6 +724,124 @@ lang: "zh_CN"
 
 ${body}
 `;
+		}
+
+		function ensureFrontmatter(markdownText, fileName) {
+			if (/^---\r?\n/.test(markdownText)) {
+				return markdownText;
+			}
+
+			const inferredTitle =
+				elements.postTitle?.value.trim() ||
+				fileNameWithoutExtension(fileName).replace(/[-_]+/g, " ").trim() ||
+				"未命名文章";
+			const published = elements.postPublished?.value || initialPublishedDate;
+			const description = elements.postDescription?.value.trim() || "";
+			const category = elements.postCategory?.value.trim() || "";
+			const tags = splitTags(elements.postTags?.value || "");
+			const isDraft = Boolean(elements.postDraft?.checked);
+			const body = markdownText.trim();
+
+			return `---
+title: ${JSON.stringify(inferredTitle)}
+published: ${published}
+description: ${JSON.stringify(description)}
+tags: ${JSON.stringify(tags)}
+category: ${JSON.stringify(category)}
+draft: ${isDraft}
+lang: "zh_CN"
+---
+
+${body}
+`;
+		}
+
+		async function readSelectedLocalFile() {
+			const input = elements.localFile;
+			if (!(input instanceof HTMLInputElement) || !input.files || input.files.length === 0) {
+				throw new Error("请先选择一个本地 Markdown 文件。");
+			}
+
+			const file = input.files[0];
+			const text = await file.text();
+			return { file, text };
+		}
+
+		async function loadPosts(options = {}) {
+			const settings = readSettingsFromForm();
+			const { afterCreate = false, afterDelete = false, afterUpload = false } = options;
+
+			try {
+				validateSettings(settings);
+				setButtonBusy(elements.loadPostsButton, "读取中...", true);
+				setButtonBusy(elements.refreshPostsButton, "刷新中...", true);
+				setStatus("正在读取 GitHub 上的文章列表...", "info");
+
+				const files = await fetchPostFiles(settings);
+				const postMetaResults = await Promise.allSettled(
+					files.map((file) => fetchSinglePostMeta(settings, file.path)),
+				);
+				const postMetaList = postMetaResults
+					.filter((result) => result.status === "fulfilled")
+					.map((result) => result.value);
+				const failedCount = postMetaResults.length - postMetaList.length;
+
+				postMetaList.sort((a, b) => {
+					const dateA = a.published || "";
+					const dateB = b.published || "";
+					return dateA < dateB ? 1 : dateA > dateB ? -1 : a.path.localeCompare(b.path);
+				});
+
+				renderPosts(postMetaList);
+
+				if (failedCount > 0) {
+					setStatus(
+						`文章列表已经刷新，但有 ${failedCount} 篇文章的详细信息这次没读到。你再点一次“刷新列表”通常就能恢复。`,
+						"warning",
+					);
+					return;
+				}
+
+				if (afterUpload) {
+					setStatus(`文件已经上传成功了，当前列表里一共看到 ${postMetaList.length} 篇文章。`, "success");
+					return;
+				}
+
+				if (afterCreate) {
+					setStatus(`文章已经创建成功了，当前列表里一共看到 ${postMetaList.length} 篇文章。`, "success");
+					return;
+				}
+
+				if (afterDelete) {
+					setStatus(`文章已经删除成功了，当前列表里还剩 ${postMetaList.length} 篇文章。`, "success");
+					return;
+				}
+
+				setStatus(`读取完成，现在一共找到 ${postMetaList.length} 篇文章。`, "success");
+			} catch (error) {
+				console.error(error);
+				const message = normalizeAdminError(error, "读取文章列表失败。");
+
+				if (afterUpload) {
+					setStatus(`文件其实已经上传成功了，只是刷新列表时出了点问题：${message}`, "warning");
+					return;
+				}
+
+				if (afterCreate) {
+					setStatus(`文章其实已经创建成功了，只是刷新列表时出了点问题：${message}`, "warning");
+					return;
+				}
+
+				if (afterDelete) {
+					setStatus(`文章其实已经删除成功了，只是刷新列表时出了点问题：${message}`, "warning");
+					return;
+				}
+
+				setStatus(message, "error");
+			} finally {
+				setButtonBusy(elements.loadPostsButton, "读取中...", false);
+				setButtonBusy(elements.refreshPostsButton, "刷新中...", false);
+			}
 		}
 
 		async function createPost() {
@@ -606,20 +876,77 @@ ${body}
 					}),
 				});
 
-				setStatus(
-					"文章创建成功，GitHub Pages 部署完成后就能在前台看到。",
-					"success",
-				);
 				fileNameTouchedByUser = false;
 				if (elements.postFileName) {
 					elements.postFileName.value = suggestFileName();
 				}
-				await loadPosts();
+				await loadPosts({ afterCreate: true });
 			} catch (error) {
 				console.error(error);
-				setStatus(error instanceof Error ? error.message : "创建文章失败。", "error");
+				setStatus(normalizeAdminError(error, "创建文章失败。"), "error");
 			} finally {
 				setButtonBusy(elements.createPostButton, "创建中...", false);
+			}
+		}
+
+		async function uploadLocalFileDirectly() {
+			const settings = readSettingsFromForm();
+
+			try {
+				validateSettings(settings);
+				const { file, text } = await readSelectedLocalFile();
+				const fileName = normalizeFileName(
+					elements.importFileName?.value.trim() || file.name,
+				);
+				const markdownContent = ensureFrontmatter(text, fileName);
+				const titleForCommit =
+					elements.postTitle?.value.trim() ||
+					fileNameWithoutExtension(fileName).replace(/[-_]+/g, " ").trim() ||
+					fileName;
+
+				setButtonBusy(elements.uploadFileDirectButton, "上传中...", true);
+				setStatus("正在把本地文件上传到 GitHub 仓库...", "info");
+
+				await githubRequest(settings, `/contents/${encodeRepoPath(`${settings.contentDir}/${fileName}`)}`, {
+					method: "PUT",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify({
+						message: `feat: add post ${titleForCommit}`,
+						content: encodeBase64Utf8(markdownContent),
+						branch: settings.branch,
+					}),
+				});
+
+				await loadPosts({ afterUpload: true });
+			} catch (error) {
+				console.error(error);
+				setStatus(normalizeAdminError(error, "上传本地文件失败。"), "error");
+			} finally {
+				setButtonBusy(elements.uploadFileDirectButton, "上传中...", false);
+			}
+		}
+
+		async function importLocalFileToForm() {
+			try {
+				setButtonBusy(elements.importToFormButton, "读取中...", true);
+				const { file, text } = await readSelectedLocalFile();
+				const importFileName = normalizeFileName(
+					elements.importFileName?.value.trim() || file.name,
+				);
+				const parsed = parseMarkdownFile(text, importFileName);
+
+				setPostFormValues(parsed);
+				if (elements.importFileName) {
+					elements.importFileName.value = importFileName;
+				}
+				setStatus("本地文件已经读入到下面表单里了，你可以检查一下再创建文章。", "success");
+			} catch (error) {
+				console.error(error);
+				setStatus(normalizeAdminError(error, "读取本地文件失败。"), "error");
+			} finally {
+				setButtonBusy(elements.importToFormButton, "读取中...", false);
 			}
 		}
 
@@ -630,7 +957,7 @@ ${body}
 				validateSettings(settings);
 
 				const confirmed = window.confirm(
-					`确定要删除这篇文章吗？\n\n${title}\n${path}\n\n删除后仓库里的文件会被直接移除。`,
+					`确定要删除这篇文章吗？\n\n${title}\n${path}\n\n删除后，仓库里的这个文件会被直接移除。`,
 				);
 
 				if (!confirmed) {
@@ -651,11 +978,10 @@ ${body}
 					}),
 				});
 
-				setStatus("文章已删除，正在刷新列表。", "success");
-				await loadPosts();
+				await loadPosts({ afterDelete: true });
 			} catch (error) {
 				console.error(error);
-				setStatus(error instanceof Error ? error.message : "删除文章失败。", "error");
+				setStatus(normalizeAdminError(error, "删除文章失败。"), "error");
 			}
 		}
 
@@ -709,12 +1035,27 @@ ${body}
 			});
 		}
 
+		function bindLocalFileHelpers() {
+			if (!(elements.localFile instanceof HTMLInputElement)) return;
+
+			elements.localFile.addEventListener("change", () => {
+				const file = elements.localFile.files?.[0];
+				if (!file) return;
+
+				if (elements.importFileName && !elements.importFileName.value.trim()) {
+					elements.importFileName.value = file.name;
+				}
+			});
+		}
+
 		function bindActions() {
 			elements.saveSettingsButton?.addEventListener("click", saveSettingsToBrowser);
-			elements.loadPostsButton?.addEventListener("click", loadPosts);
-			elements.refreshPostsButton?.addEventListener("click", loadPosts);
+			elements.loadPostsButton?.addEventListener("click", () => loadPosts());
+			elements.refreshPostsButton?.addEventListener("click", () => loadPosts());
 			elements.clearTokenButton?.addEventListener("click", clearSavedToken);
 			elements.createPostButton?.addEventListener("click", createPost);
+			elements.importToFormButton?.addEventListener("click", importLocalFileToForm);
+			elements.uploadFileDirectButton?.addEventListener("click", uploadLocalFileDirectly);
 		}
 
 		function init() {
@@ -723,8 +1064,8 @@ ${body}
 			bindDeleteButtons();
 			bindFileNameSuggestion();
 			bindTemplateButton();
+			bindLocalFileHelpers();
 
-			// 如果之前已经保存过令牌，页面打开时就自动帮你读取一次文章列表。
 			const savedText = localStorage.getItem(STORAGE_KEY);
 			if (!savedText) return;
 
@@ -734,7 +1075,7 @@ ${body}
 					loadPosts();
 				}
 			} catch (error) {
-				console.warn("自动读取后台设置失败：", error);
+				console.warn("自动读取后台设置失败。", error);
 			}
 		}
 
@@ -793,6 +1134,10 @@ ${body}
 		box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 12%, transparent);
 	}
 
+	.admin-file-input {
+		padding: 0.7rem 0.9rem;
+	}
+
 	.admin-textarea {
 		resize: vertical;
 		min-height: 17rem;
@@ -827,6 +1172,11 @@ ${body}
 	.admin-status[data-status-type="success"] {
 		background: color-mix(in srgb, #22c55e 12%, transparent);
 		border-color: color-mix(in srgb, #22c55e 25%, transparent);
+	}
+
+	.admin-status[data-status-type="warning"] {
+		background: color-mix(in srgb, #f59e0b 12%, transparent);
+		border-color: color-mix(in srgb, #f59e0b 25%, transparent);
 	}
 
 	.admin-status[data-status-type="error"] {
