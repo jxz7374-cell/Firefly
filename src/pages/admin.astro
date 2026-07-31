@@ -107,8 +107,8 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 						</div>
 
 						<div class="rounded-2xl bg-neutral-500/5 px-4 py-4 text-sm leading-7 text-neutral-600 dark:text-neutral-400">
-							<p>现在把“直接添加文件”和“上传任意文件”都收进“新增文章”里了。</p>
-							<p>你可以先导入 Markdown，或先上传附件插入正文，再统一创建文章。</p>
+							<p>这里只保留“新增文章”这一种发布方式。</p>
+							<p>如果文章里要配图或放附件，直接在下面的“添加文件”里上传并插入正文就可以。</p>
 						</div>
 
 						<div class="admin-section-block mt-5">
@@ -117,56 +117,13 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 								<h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100">新增文章</h3>
 							</div>
 
-							<div class="grid gap-4 xl:grid-cols-2">
-								<div class="rounded-2xl border border-(--line-divider) bg-neutral-500/5 p-4">
-									<div class="flex items-center gap-2 mb-4">
-										<Icon is:inline name="material-symbols:upload-file-outline-rounded" class="text-[1.25rem] text-(--primary)" />
-										<h4 class="text-base font-bold text-neutral-900 dark:text-neutral-100">导入本地 Markdown</h4>
-									</div>
-
-									<label class="admin-field">
-										<span>选择本地 Markdown 文件</span>
-										<input id="local-markdown-file" class="admin-input admin-file-input" type="file" accept=".md,.mdx,.txt" />
-										<small class="admin-help">
-											可以直接选择你电脑里的 <code>.md</code>、<code>.mdx</code> 或 <code>.txt</code> 文件。
-										</small>
-									</label>
-
-									<label class="admin-field mt-4">
-										<span>上传后的文件名</span>
-										<input
-											id="import-file-name"
-											class="admin-input"
-											type="text"
-											placeholder="默认会使用你选中的文件名"
-											autocomplete="off"
-										/>
-										<small class="admin-help">
-											如果你不想改，就留空，系统会自动使用本地文件名。
-										</small>
-									</label>
-
-									<div class="flex flex-wrap gap-3 mt-5">
-										<button id="admin-import-to-form" class="btn-card rounded-xl px-4 py-2.5 font-semibold text-(--primary) active:scale-95">
-											读入文章表单
-										</button>
-										<button id="admin-upload-file-direct" class="btn-regular rounded-xl px-4 py-2.5 font-semibold active:scale-95">
-											直接上传为文章
-										</button>
-									</div>
-
-									<div class="mt-4 rounded-2xl bg-neutral-500/5 px-4 py-4 text-sm leading-7 text-neutral-600 dark:text-neutral-400">
-										<p>“读入文章表单”适合你先检查标题、日期、标签，再决定发布。</p>
-										<p>“直接上传为文章”适合你本地 Markdown 已经写好了，想一步传上去。</p>
-									</div>
+							<div class="rounded-2xl border border-(--line-divider) bg-neutral-500/5 p-4">
+								<div class="flex items-center gap-2 mb-4">
+									<Icon is:inline name="material-symbols:attach-file-add-rounded" class="text-[1.25rem] text-(--primary)" />
+									<h4 class="text-base font-bold text-neutral-900 dark:text-neutral-100">添加文件</h4>
 								</div>
 
-								<div class="rounded-2xl border border-(--line-divider) bg-neutral-500/5 p-4">
-									<div class="flex items-center gap-2 mb-4">
-										<Icon is:inline name="material-symbols:drive-folder-upload-outline-rounded" class="text-[1.25rem] text-(--primary)" />
-										<h4 class="text-base font-bold text-neutral-900 dark:text-neutral-100">给这篇文章上传附件</h4>
-									</div>
-
+								<div class="grid gap-4 md:grid-cols-2">
 									<label class="admin-field">
 										<span>上传目录</span>
 										<input id="admin-upload-dir" class="admin-input" type="text" value={repoDefaults.assetDir} autocomplete="off" />
@@ -175,15 +132,7 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 										</small>
 									</label>
 
-									<label class="admin-field mt-4">
-										<span>选择任意本地文件</span>
-										<input id="any-local-file" class="admin-input admin-file-input" type="file" />
-										<small class="admin-help">
-											这里不限制文件类型。图片、PDF、压缩包、Word、Excel 等文件都可以直接上传。
-										</small>
-									</label>
-
-									<label class="admin-field mt-4">
+									<label class="admin-field">
 										<span>上传后的文件名</span>
 										<input
 											id="any-file-name"
@@ -196,17 +145,25 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 											如果你不想改名，这里可以留空。系统会自动使用原文件名，并尽量保留原扩展名。
 										</small>
 									</label>
+								</div>
 
-									<div class="flex flex-wrap gap-3 mt-5">
-										<button id="admin-upload-any-file" class="btn-regular rounded-xl px-4 py-2.5 font-semibold active:scale-95">
-											上传附件并插入正文
-										</button>
-									</div>
+								<label class="admin-field mt-4">
+									<span>选择要插入文章的文件</span>
+									<input id="any-local-file" class="admin-input admin-file-input" type="file" />
+									<small class="admin-help">
+										图片、PDF、压缩包、Word、Excel 等文件都可以上传。上传成功后会自动插入到正文里。
+									</small>
+								</label>
 
-									<div class="mt-4 rounded-2xl bg-neutral-500/5 px-4 py-4 text-sm leading-7 text-neutral-600 dark:text-neutral-400">
-										<p>上传成功后，系统会自动把文件链接追加到下面的正文里。</p>
-										<p>如果是图片，会自动插入 Markdown 图片语法；其他文件会插入下载链接。</p>
-									</div>
+								<div class="flex flex-wrap gap-3 mt-5">
+									<button id="admin-upload-any-file" class="btn-regular rounded-xl px-4 py-2.5 font-semibold active:scale-95">
+										添加文件到文章
+									</button>
+								</div>
+
+								<div class="mt-4 rounded-2xl bg-neutral-500/5 px-4 py-4 text-sm leading-7 text-neutral-600 dark:text-neutral-400">
+									<p>上传成功后，系统会自动把文件链接追加到下面的正文里。</p>
+									<p>如果是图片，会自动插入 Markdown 图片语法；其他文件会插入下载链接。</p>
 								</div>
 							</div>
 
@@ -363,10 +320,6 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 			postFileName: document.getElementById("post-file-name"),
 			postDraft: document.getElementById("post-draft"),
 			postBody: document.getElementById("post-body"),
-			localFile: document.getElementById("local-markdown-file"),
-			importFileName: document.getElementById("import-file-name"),
-			importToFormButton: document.getElementById("admin-import-to-form"),
-			uploadFileDirectButton: document.getElementById("admin-upload-file-direct"),
 			uploadList: document.getElementById("admin-upload-list"),
 			anyLocalFile: document.getElementById("any-local-file"),
 			anyFileName: document.getElementById("any-file-name"),
@@ -606,10 +559,6 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 			}
 
 			return cleaned;
-		}
-
-		function fileNameWithoutExtension(fileName) {
-			return fileName.replace(/\.(md|mdx|txt)$/i, "");
 		}
 
 		function escapeHtml(text) {
@@ -886,85 +835,6 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 				.join("");
 		}
 
-		function setPostFormValues({
-			title: postTitle = "",
-			published = initialPublishedDate,
-			description = "",
-			category = "",
-			tags = [],
-			draft = false,
-			body = "",
-			fileName = "",
-		}) {
-			if (elements.postTitle) elements.postTitle.value = postTitle;
-			if (elements.postPublished) elements.postPublished.value = normalizeDateValue(published) || initialPublishedDate;
-			if (elements.postDescription) elements.postDescription.value = description;
-			if (elements.postCategory) elements.postCategory.value = category;
-			if (elements.postTags) elements.postTags.value = tags.join(", ");
-			if (elements.postDraft) elements.postDraft.checked = Boolean(draft);
-			if (elements.postBody) elements.postBody.value = body.trim();
-
-			fileNameTouchedByUser = Boolean(fileName);
-			if (elements.postFileName) {
-				elements.postFileName.value = fileName || suggestFileName();
-			}
-		}
-
-		function parseFrontmatterValue(rawValue) {
-			const trimmed = rawValue.trim();
-
-			if (!trimmed) return "";
-			if (trimmed === "true") return true;
-			if (trimmed === "false") return false;
-
-			if (trimmed.startsWith("[") && trimmed.endsWith("]")) {
-				try {
-					return JSON.parse(trimmed.replace(/'/g, '"'));
-				} catch {
-					return trimmed
-						.slice(1, -1)
-						.split(",")
-						.map((item) => normalizeDisplayValue(item))
-						.filter(Boolean);
-				}
-			}
-
-			try {
-				return JSON.parse(trimmed);
-			} catch {
-				return normalizeDisplayValue(trimmed);
-			}
-		}
-
-		function parseMarkdownFile(markdownText, fallbackFileName) {
-			const frontmatterMatch = markdownText.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?/);
-			const body = frontmatterMatch
-				? markdownText.slice(frontmatterMatch[0].length).trim()
-				: markdownText.trim();
-			const data = {};
-
-			if (frontmatterMatch) {
-				for (const line of frontmatterMatch[1].split(/\r?\n/)) {
-					const match = line.match(/^([A-Za-z0-9_]+):\s*(.*)$/);
-					if (!match) continue;
-					const [, key, value] = match;
-					data[key] = parseFrontmatterValue(value);
-				}
-			}
-
-			const titleFromFile = fileNameWithoutExtension(fallbackFileName).replace(/[-_]+/g, " ");
-			return {
-				title: String(data.title || titleFromFile).trim(),
-				published: normalizeDateValue(String(data.published || initialPublishedDate)) || initialPublishedDate,
-				description: String(data.description || "").trim(),
-				category: String(data.category || "").trim(),
-				tags: Array.isArray(data.tags) ? data.tags.map((item) => String(item).trim()).filter(Boolean) : [],
-				draft: Boolean(data.draft),
-				body,
-				fileName: normalizeFileName(fallbackFileName),
-			};
-		}
-
 		function buildMarkdownContent() {
 			const title = elements.postTitle?.value.trim() || "";
 			const published = elements.postPublished?.value || initialPublishedDate;
@@ -988,47 +858,6 @@ ${body}
 `;
 		}
 
-		function ensureFrontmatter(markdownText, fileName) {
-			if (/^---\r?\n/.test(markdownText)) {
-				return markdownText;
-			}
-
-			const inferredTitle =
-				elements.postTitle?.value.trim() ||
-				fileNameWithoutExtension(fileName).replace(/[-_]+/g, " ").trim() ||
-				"未命名文章";
-			const published = elements.postPublished?.value || initialPublishedDate;
-			const description = elements.postDescription?.value.trim() || "";
-			const category = elements.postCategory?.value.trim() || "";
-			const tags = splitTags(elements.postTags?.value || "");
-			const isDraft = Boolean(elements.postDraft?.checked);
-			const body = markdownText.trim();
-
-			return `---
-title: ${JSON.stringify(inferredTitle)}
-published: ${published}
-description: ${JSON.stringify(description)}
-tags: ${JSON.stringify(tags)}
-category: ${JSON.stringify(category)}
-draft: ${isDraft}
-lang: "zh_CN"
----
-
-${body}
-`;
-		}
-
-		async function readSelectedLocalFile() {
-			const input = elements.localFile;
-			if (!(input instanceof HTMLInputElement) || !input.files || input.files.length === 0) {
-				throw new Error("请先选择一个本地 Markdown 文件。");
-			}
-
-			const file = input.files[0];
-			const text = await file.text();
-			return { file, text };
-		}
-
 		async function readSelectedGenericFile() {
 			const input = elements.anyLocalFile;
 			if (!(input instanceof HTMLInputElement) || !input.files || input.files.length === 0) {
@@ -1048,7 +877,6 @@ ${body}
 			const {
 				afterCreate = false,
 				afterDelete = false,
-				afterUpload = false,
 				afterAssetUpload = false,
 				afterAssetDelete = false,
 			} = options;
@@ -1095,11 +923,6 @@ ${body}
 					return;
 				}
 
-				if (afterUpload) {
-					setStatus(`Markdown 文件已经上传成功了，当前列表里一共看到 ${postMetaList.length} 篇文章。`, "success");
-					return;
-				}
-
 				if (afterCreate) {
 					setStatus(`文章已经创建成功了，当前列表里一共看到 ${postMetaList.length} 篇文章。`, "success");
 					return;
@@ -1130,11 +953,6 @@ ${body}
 			} catch (error) {
 				console.error(error);
 				const message = normalizeAdminError(error, "读取后台列表失败。");
-
-				if (afterUpload) {
-					setStatus(`Markdown 文件其实已经上传成功了，只是刷新列表时出了点问题：${message}`, "warning");
-					return;
-				}
 
 				if (afterCreate) {
 					setStatus(`文章其实已经创建成功了，只是刷新列表时出了点问题：${message}`, "warning");
@@ -1209,45 +1027,6 @@ ${body}
 			}
 		}
 
-		async function uploadLocalFileDirectly() {
-			const settings = readSettingsFromForm();
-
-			try {
-				validateSettings(settings);
-				const { file, text } = await readSelectedLocalFile();
-				const fileName = normalizeFileName(
-					elements.importFileName?.value.trim() || file.name,
-				);
-				const markdownContent = ensureFrontmatter(text, fileName);
-				const titleForCommit =
-					elements.postTitle?.value.trim() ||
-					fileNameWithoutExtension(fileName).replace(/[-_]+/g, " ").trim() ||
-					fileName;
-
-				setButtonBusy(elements.uploadFileDirectButton, "上传中...", true);
-				setStatus("正在把本地文件上传到 GitHub 仓库...", "info");
-
-				await githubRequest(settings, `/contents/${encodeRepoPath(`${settings.contentDir}/${fileName}`)}`, {
-					method: "PUT",
-					headers: {
-						"Content-Type": "application/json",
-					},
-					body: JSON.stringify({
-						message: `feat: add post ${titleForCommit}`,
-						content: encodeBase64Utf8(markdownContent),
-						branch: settings.branch,
-					}),
-				});
-
-				await loadPosts({ afterUpload: true });
-			} catch (error) {
-				console.error(error);
-				setStatus(normalizeAdminError(error, "上传本地文件失败。"), "error");
-			} finally {
-				setButtonBusy(elements.uploadFileDirectButton, "上传中...", false);
-			}
-		}
-
 		async function uploadGenericFile() {
 			const settings = readSettingsFromForm();
 
@@ -1284,28 +1063,6 @@ ${body}
 				setStatus(normalizeAdminError(error, "上传任意文件失败。"), "error");
 			} finally {
 				setButtonBusy(elements.uploadAnyFileButton, "上传中...", false);
-			}
-		}
-
-		async function importLocalFileToForm() {
-			try {
-				setButtonBusy(elements.importToFormButton, "读取中...", true);
-				const { file, text } = await readSelectedLocalFile();
-				const importFileName = normalizeFileName(
-					elements.importFileName?.value.trim() || file.name,
-				);
-				const parsed = parseMarkdownFile(text, importFileName);
-
-				setPostFormValues(parsed);
-				if (elements.importFileName) {
-					elements.importFileName.value = importFileName;
-				}
-				setStatus("本地文件已经读入到下面表单里了，你可以检查一下再创建文章。", "success");
-			} catch (error) {
-				console.error(error);
-				setStatus(normalizeAdminError(error, "读取本地文件失败。"), "error");
-			} finally {
-				setButtonBusy(elements.importToFormButton, "读取中...", false);
 			}
 		}
 
@@ -1425,17 +1182,6 @@ ${body}
 		}
 
 		function bindLocalFileHelpers() {
-			if (elements.localFile instanceof HTMLInputElement) {
-				elements.localFile.addEventListener("change", () => {
-					const file = elements.localFile.files?.[0];
-					if (!file) return;
-
-					if (elements.importFileName && !elements.importFileName.value.trim()) {
-						elements.importFileName.value = file.name;
-					}
-				});
-			}
-
 			if (elements.anyLocalFile instanceof HTMLInputElement) {
 				elements.anyLocalFile.addEventListener("change", () => {
 					const file = elements.anyLocalFile.files?.[0];
@@ -1455,8 +1201,6 @@ ${body}
 			elements.refreshUploadsButton?.addEventListener("click", () => loadPosts());
 			elements.clearTokenButton?.addEventListener("click", clearSavedToken);
 			elements.createPostButton?.addEventListener("click", createPost);
-			elements.importToFormButton?.addEventListener("click", importLocalFileToForm);
-			elements.uploadFileDirectButton?.addEventListener("click", uploadLocalFileDirectly);
 			elements.uploadAnyFileButton?.addEventListener("click", uploadGenericFile);
 		}
 
