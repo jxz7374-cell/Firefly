@@ -132,26 +132,26 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 										</small>
 									</label>
 
-									<label class="admin-field">
-										<span>上传后的文件名</span>
-										<input
-											id="any-file-name"
-											class="admin-input"
-											type="text"
-											placeholder="默认使用你选中的原文件名"
-											autocomplete="off"
-										/>
-										<small class="admin-help">
-											如果你不想改名，这里可以留空。系统会自动使用原文件名，并尽量保留原扩展名。
-										</small>
-									</label>
+								<label class="admin-field">
+									<span>上传后的文件名</span>
+									<input
+										id="any-file-name"
+										class="admin-input"
+										type="text"
+										placeholder="单文件时可自定义，多文件时请留空"
+										autocomplete="off"
+									/>
+									<small class="admin-help">
+										如果你一次只传 1 个文件，这里可以自定义文件名。一次传多个文件时，请留空，系统会保留每个文件原名。
+									</small>
+								</label>
 								</div>
 
 								<label class="admin-field mt-4">
 									<span>选择要插入文章的文件</span>
-									<input id="any-local-file" class="admin-input admin-file-input" type="file" />
+									<input id="any-local-file" class="admin-input admin-file-input" type="file" multiple />
 									<small class="admin-help">
-										图片、PDF、压缩包、Word、Excel 等文件都可以上传。上传成功后会自动插入到正文里。
+										图片、PDF、压缩包、Word、Excel 等文件都可以上传。支持一次选择多个文件，上传成功后会自动插入到正文里。
 									</small>
 								</label>
 
@@ -632,6 +632,18 @@ const initialPublishedDate = new Date().toISOString().slice(0, 10);
 			return snippet;
 		}
 
+		function appendAttachmentsToPostBody(files) {
+			if (!(elements.postBody instanceof HTMLTextAreaElement) || files.length === 0) return "";
+
+			const snippets = files
+				.map((file) => buildAttachmentMarkdown(file.url, file.name))
+				.join("\n\n");
+			const currentValue = elements.postBody.value.trimEnd();
+			elements.postBody.value = currentValue ? `${currentValue}\n\n${snippets}` : snippets;
+			elements.postBody.focus();
+			return snippets;
+		}
+
 		function normalizeAdminError(error, fallbackMessage) {
 			if (error instanceof DOMException && error.name === "AbortError") {
 				return "连接 GitHub 超时了。可以等几秒后再试一次。";
@@ -858,18 +870,21 @@ ${body}
 `;
 		}
 
-		async function readSelectedGenericFile() {
+		async function readSelectedGenericFiles() {
 			const input = elements.anyLocalFile;
 			if (!(input instanceof HTMLInputElement) || !input.files || input.files.length === 0) {
-				throw new Error("请先选择一个要上传的本地文件。");
+				throw new Error("请先选择至少一个要上传的本地文件。");
 			}
 
-			const file = input.files[0];
-			const buffer = await file.arrayBuffer();
-			return {
-				file,
-				bytes: new Uint8Array(buffer),
-			};
+			return Promise.all(
+				Array.from(input.files).map(async (file) => {
+					const buffer = await file.arrayBuffer();
+					return {
+						file,
+						bytes: new Uint8Array(buffer),
+					};
+				}),
+			);
 		}
 
 		async function loadPosts(options = {}) {
@@ -1033,31 +1048,53 @@ ${body}
 			try {
 				validateSettings(settings);
 				const uploadDir = getUploadDirFromSettings(settings);
-				const { file, bytes } = await readSelectedGenericFile();
-				const fileName = normalizeAssetFileName(
-					elements.anyFileName?.value.trim() || file.name,
-				);
-				const filePath = `${uploadDir}/${fileName}`;
-				const fileUrl = buildPublicFileUrl(filePath);
+				const selectedFiles = await readSelectedGenericFiles();
+				const customFileName = elements.anyFileName?.value.trim() || "";
+
+				if (selectedFiles.length > 1 && customFileName) {
+					throw new Error("一次上传多个文件时，请把“上传后的文件名”留空，系统会自动保留每个文件自己的名字。");
+				}
 
 				setButtonBusy(elements.uploadAnyFileButton, "上传中...", true);
-				setStatus("正在把这个文件上传到 GitHub 仓库...", "info");
+				setStatus(
+					selectedFiles.length === 1
+						? "正在把这个文件上传到 GitHub 仓库..."
+						: `正在把 ${selectedFiles.length} 个文件上传到 GitHub 仓库...`,
+					"info",
+				);
 
-				await githubRequest(settings, `/contents/${encodeRepoPath(filePath)}`, {
-					method: "PUT",
-					headers: {
-						"Content-Type": "application/json",
-					},
-					body: JSON.stringify({
-						message: `feat: upload file ${fileName}`,
-						content: encodeBase64Bytes(bytes),
-						branch: settings.branch,
-					}),
-				});
+				const uploadedFiles = [];
+				for (const { file, bytes } of selectedFiles) {
+					const fileName = normalizeAssetFileName(customFileName || file.name);
+					const filePath = `${uploadDir}/${fileName}`;
+					const fileUrl = buildPublicFileUrl(filePath);
 
-				appendAttachmentToPostBody(fileUrl, fileName);
+					await githubRequest(settings, `/contents/${encodeRepoPath(filePath)}`, {
+						method: "PUT",
+						headers: {
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify({
+							message: `feat: upload file ${fileName}`,
+							content: encodeBase64Bytes(bytes),
+							branch: settings.branch,
+						}),
+					});
+
+					uploadedFiles.push({
+						name: fileName,
+						url: fileUrl,
+					});
+				}
+
+				appendAttachmentsToPostBody(uploadedFiles);
 				await loadPosts({ afterAssetUpload: true });
-				setStatus(`附件上传成功，已经把链接插入到正文里：${fileUrl}`, "success");
+				setStatus(
+					selectedFiles.length === 1
+						? `附件上传成功，已经把链接插入到正文里：${uploadedFiles[0]?.url || ""}`
+						: ` ${selectedFiles.length} 个文件上传成功，链接已经按顺序插入到正文里。`.trim(),
+					"success",
+				);
 			} catch (error) {
 				console.error(error);
 				setStatus(normalizeAdminError(error, "上传任意文件失败。"), "error");
@@ -1184,11 +1221,19 @@ ${body}
 		function bindLocalFileHelpers() {
 			if (elements.anyLocalFile instanceof HTMLInputElement) {
 				elements.anyLocalFile.addEventListener("change", () => {
-					const file = elements.anyLocalFile.files?.[0];
-					if (!file) return;
+					const files = elements.anyLocalFile.files;
+					if (!files || files.length === 0) return;
 
-					if (elements.anyFileName && !elements.anyFileName.value.trim()) {
-						elements.anyFileName.value = file.name;
+					if (!(elements.anyFileName instanceof HTMLInputElement)) return;
+					if (files.length > 1) {
+						elements.anyFileName.value = "";
+						elements.anyFileName.placeholder = "已选择多个文件，请留空保留各自原名";
+						return;
+					}
+
+					elements.anyFileName.placeholder = "单文件时可自定义，多文件时请留空";
+					if (!elements.anyFileName.value.trim()) {
+						elements.anyFileName.value = files[0].name;
 					}
 				});
 			}
