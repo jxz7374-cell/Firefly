@@ -15,6 +15,11 @@ interface Props {
 	sourceLink: string;
 	licenseName: string;
 	licenseUrl: string;
+	downloadItems?: {
+		label: string;
+		href: string;
+		fileName: string;
+	}[];
 }
 
 const { title, pubDate, author, sourceLink, licenseName, licenseUrl } =
@@ -23,6 +28,7 @@ const className = Astro.props.class;
 const profileConf = profileConfig;
 const licenseConf = licenseConfig;
 const postUrl = sourceLink || decodeURIComponent(Astro.url.toString());
+const downloadItems = Array.isArray(Astro.props.downloadItems) ? Astro.props.downloadItems : [];
 
 // 根据许可证名称匹配对应图标
 function getLicenseIcon(name: string): string {
@@ -54,9 +60,26 @@ const licenseIcon = licenseName
   <div class="transition font-bold text-black/75 dark:text-white/75">
     {title}
   </div>
-  <a href={postUrl} class="link text-(--primary) break-all">
-    {postUrl}
-  </a>
+  {
+    downloadItems.length > 0 ? (
+      <div class="mt-3 flex flex-wrap gap-3 pr-10">
+        {downloadItems.map((item) => (
+          <a
+            href={item.href}
+            download={item.fileName}
+            class="inline-flex items-center gap-2 rounded-xl bg-(--primary) px-4 py-2 text-sm font-semibold text-white dark:text-black/70 transition hover:opacity-90 active:scale-95"
+          >
+            <Icon is:inline name="material-symbols:download-rounded" class="text-lg" />
+            <span>{item.label || item.fileName}</span>
+          </a>
+        ))}
+      </div>
+    ) : (
+      <a href={postUrl} class="link text-(--primary) break-all">
+        {postUrl}
+      </a>
+    )
+  }
   <div class="flex flex-col sm:flex-row gap-3 sm:gap-6 mt-2">
     <div>
       <div class="transition text-black/30 dark:text-white/30 text-sm">

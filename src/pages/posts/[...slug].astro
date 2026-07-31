@@ -29,6 +29,14 @@ import { siteConfig } from "@/config/siteConfig";
 import { formatDateToYYYYMMDD } from "@/utils/date-utils";
 import { getApiUrlList, processCoverImageSync } from "@/utils/image-utils";
 
+type AttachmentItem = {
+	label: string;
+	href: string;
+	fileName: string;
+	extension: string;
+	isImage: boolean;
+};
+
 export async function getStaticPaths() {
 	const blogEntries = await getSortedPosts();
 	return blogEntries.map((entry) => {
@@ -101,34 +109,34 @@ function isAttachmentHref(href: string) {
 }
 
 function extractAttachmentItems(markdownText: string) {
-	const matches = markdownText.matchAll(/!?\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g);
 	const seen = new Set<string>();
-	const items: {
-		label: string;
-		href: string;
-		fileName: string;
-		extension: string;
-		isImage: boolean;
-	}[] = [];
+	const items: AttachmentItem[] = [];
 
-	for (const match of matches) {
-		const href = match[2]?.trim() || "";
-		if (!href || !isAttachmentHref(href)) continue;
+	function appendAttachment(href: string, label?: string) {
+		if (!href || !isAttachmentHref(href)) return;
 
 		const resolvedHref = new URL(href, Astro.url).toString();
-		if (seen.has(resolvedHref)) continue;
+		if (seen.has(resolvedHref)) return;
 		seen.add(resolvedHref);
 
 		const fileName = getFileNameFromHref(href);
 		const extension = getExtensionFromHref(href);
 
 		items.push({
-			label: match[1]?.trim() || fileName,
+			label: label?.trim() || fileName,
 			href: resolvedHref,
 			fileName,
 			extension,
 			isImage: IMAGE_EXTENSIONS.has(extension),
 		});
+	}
+
+	for (const match of markdownText.matchAll(/!?\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g)) {
+		appendAttachment(match[2]?.trim() || "", match[1]?.trim() || "");
+	}
+
+	for (const match of markdownText.matchAll(/(?:^|[\s(])(https?:\/\/[^\s<>"')]+|\/uploads\/[^\s<>"')]+)/gm)) {
+		appendAttachment(match[1]?.trim() || "");
 	}
 
 	return items;
@@ -294,6 +302,7 @@ const relatedPosts = await getRelatedPosts(entry, 5);
 								sourceLink={entry.data.sourceLink}
 								licenseName={entry.data.licenseName}
 								licenseUrl={entry.data.licenseUrl}
+								downloadItems={attachmentItems}
 								class="mb-6 rounded-xl license-container onload-animation"
 							/>
 						)
@@ -319,6 +328,7 @@ const relatedPosts = await getRelatedPosts(entry, 5);
 								sourceLink={entry.data.sourceLink}
 								licenseName={entry.data.licenseName}
 								licenseUrl={entry.data.licenseUrl}
+								downloadItems={attachmentItems}
 								class="mb-6 rounded-xl license-container onload-animation"
 							/>
 						)
