@@ -1,0 +1,70 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface AttachmentItem {
+	label: string;
+	href: string;
+	fileName: string;
+	extension: string;
+	isImage: boolean;
+}
+
+interface Props {
+	items: AttachmentItem[];
+	class?: string;
+}
+
+const { items } = Astro.props;
+const className = Astro.props.class || "";
+---
+
+{
+	items.length > 0 && (
+		<div class:list={["rounded-xl bg-(--license-block-bg) p-6", className]}>
+			<div class="flex items-center gap-3 mb-4">
+				<div class="h-11 w-11 rounded-lg bg-(--primary) text-white dark:text-black/70 flex items-center justify-center shrink-0">
+					<Icon is:inline name="material-symbols:download-rounded" class="text-2xl" />
+				</div>
+				<div>
+					<h3 class="text-lg font-bold text-neutral-900 dark:text-neutral-100">文章文件</h3>
+					<p class="text-sm text-neutral-600 dark:text-neutral-400">
+						下面这些文件可以直接下载，不用再打开新页面。
+					</p>
+				</div>
+			</div>
+
+			<div class="grid gap-3">
+				{items.map((item) => (
+					<a
+						href={item.href}
+						download={item.fileName}
+						class="group flex items-center justify-between gap-4 rounded-2xl border border-(--line-divider) bg-white/60 dark:bg-black/10 px-4 py-4 transition hover:border-(--primary)/45 hover:bg-(--primary)/6 active:scale-[0.99]"
+					>
+						<div class="flex items-center gap-3 min-w-0">
+							<div class="h-11 w-11 rounded-xl bg-(--primary)/12 text-(--primary) flex items-center justify-center shrink-0">
+								<Icon
+									is:inline
+									name={item.isImage ? "material-symbols:image-rounded" : "material-symbols:description-rounded"}
+									class="text-2xl"
+								/>
+							</div>
+							<div class="min-w-0">
+								<div class="font-semibold text-neutral-900 dark:text-neutral-100 break-all">
+									{item.label}
+								</div>
+								<div class="text-sm text-neutral-500 dark:text-neutral-400 uppercase">
+									{item.extension || "file"}
+								</div>
+							</div>
+						</div>
+
+						<div class="inline-flex items-center gap-2 rounded-xl bg-(--primary) px-4 py-2 text-sm font-semibold text-white dark:text-black/70 shrink-0 transition group-hover:translate-x-0.5">
+							<span>直接下载</span>
+							<Icon is:inline name="material-symbols:download-rounded" class="text-lg" />
+						</div>
+					</a>
+				))}
+			</div>
+		</div>
+	)
+}
