@@ -1,0 +1,1003 @@
+import time
+import cv2
+import threading
+import numpy as np
+import rospy
+import math
+from functools import wraps
+import sys
+from image_Tag_converter import ImgConverter
+from image_Tag_converter import TagConverter
+
+sys.path.append("/home/lemon/catkin_ws/src/aelos_smart_ros")
+from leju import base_action
+
+# ****************************************************************************全局变量*********************************************************************************
+
+# 图像
+Chest_img = None
+ChestOrg = None
+Debug = 0
+
+# tag码
+marker = None
+
+# 抱块
+chest_circle_x = None
+chest_circle_y = None
+
+# 路径追踪
+LeftRight = 0
+FrontBack = 0
+Anglechange = 0
+
+# flag堆
+color_temp = 0
+img_flag = 0
+test_flag = 0
+
+# 忍无可忍
+
+box_flag_back = 0
+
+# 休息
+first_number = 0
+
+# 色域
+
+color_range = {
+    'green': [(41, 153, 85), (47, 214, 128)],  # 上午十点，第二趟 //第一趟
+    'green1': [(39, 64, 97), (52, 252, 139)],  # 下午两点，起步
+    'orange': [(11, 232, 131), (16, 255, 200)],
+    'orange1': [(11, 88, 95), (19, 254, 168)]
+}
+
+
+# ****************************************************************************动作函数*********************************************************************************
+
+#####前后
+
+def box_back(n):  # 后退
+    for i in range(0, n):
+        base_action.action("boxb-tkx")
+        time.sleep(0.2)
+
+
+def back(n):  # 后退
+    for i in range(0, n):
+        base_action.action("back_kong")
+        time.sleep(0.2)
+
+
+def box_go1(n):  # 看不到tag向前纠正，走三步
+    for i in range(0, n):
+        base_action.action("x_boxgo3step_1")
+        time.sleep(0.3)
+
+
+def go_fast(n):  # 靠近tag的小步
+    for i in range(0, n):
+        base_action.action("forwalk01")
+        time.sleep(0.2)
+
+
+def go_fast1(n):  # 开局快速前进一步
+    for i in range(0, n):
+        base_action.action("fastForward1s")
+        time.sleep(0.5)
+
+
+def go_fast2(n):  # 靠近tag快速前进两步
+    for i in range(0, n):
+        base_action.action("fastForward2s")
+        time.sleep(0.3)
+
+
+def mhjbox_go(n):  # 对正tag，抱着箱子前进1步
+    for i in range(0, n):
+        base_action.action("boxgo1-tkx")
+        time.sleep(0.3)
+
+
+def box_go(n):  # 抱着箱子快速前进
+    for i in range(0, n):
+        # base_action.action("1go")
+        base_action.action("boxgo-tkx")
+        time.sleep(0.3)
+
+
+def box_gogo(n):
+    for i in range(0, n):
+        base_action.action("boxgogo-tkx")
+        time.sleep(0.3)
+
+
+#####预备动作
+
+def begin(n):  # 恢复站立
+    for i in range(0, n):
+        base_action.action("begin")
+        time.sleep(0.3)
+
+
+def li(n):
+    for i in range(0, n):
+        base_action.action("li")
+        time.sleep(0.5)
+
+
+def fang(n):
+    for i in range(0, n):
+        base_action.action("Fang_0")
+        time.sleep(0.3)
+
+
+#####抱放块
+
+def Get_box(n):  # 抱块
+    for i in range(0, n):
+        base_action.action("x_getbox_3")
+        time.sleep(0.2)
+
+
+def Baokuai(n):  # 抱块
+    for i in range(0, n):
+        base_action.action("baokuai2")
+        time.sleep(0.2)
+
+
+#####转向
+
+# **************************************************************************抱块
+def r_big_turn(n):  # 五号码大左转
+    for i in range(0, n):
+        base_action.action("boxmr-tkx")
+        time.sleep(0.3)
+
+
+def BoxL_turn3(n):  # 路径追踪和对快角度的左转
+    for i in range(0, n):
+        base_action.action("BoxLeftTurn")
+        time.sleep(0.3)
+
+
+def BoxR_turn2(n):  # tag码对正的大右转
+    for i in range(0, n):
+        base_action.action("boxr-tkx")
+
+
+def BoxR_turn1(n):  # tag码对正的小右转
+    for i in range(0, n):
+        base_action.action("boxsr_tkx")
+        time.sleep(0.3)
+
+
+def BoxL_turn2(n):  # tag码对正的大左转
+    for i in range(0, n):
+        base_action.action("boxlm1_tkx")
+        time.sleep(0.3)
+
+
+def BoxL_turn1(n):  # tag码对正的小左转
+    for i in range(0, n):
+        base_action.action("boxsl_tkx")
+        time.sleep(0.3)
+
+
+# *********************************************************************空手
+def R_turn2(n):  # 对正tag码的大右转
+    for i in range(0, n):
+        base_action.action("tag_RTurn_big")
+        time.sleep(0.3)
+
+
+def R_turn1(n):  # 对正tag码的小右转
+    for i in range(0, n):
+        base_action.action("yhtag1")
+        time.sleep(0.3)
+
+
+def L_turn1(n):  # 对正tag码的小左转
+    for i in range(0, n):
+        base_action.action("yhtag2")
+        time.sleep(0.3)
+
+
+def L_turn2(n):  # 对正tag码的大左转
+    for i in range(0, n):
+        base_action.action("leftTurn1s")
+        time.sleep(0.2)
+
+
+####侧走
+
+def fly_l_move(n):  # 开局起步动作
+    for i in range(0, n):
+        base_action.action("x_begin_lmove2")
+        time.sleep(0.2)
+
+
+def l_box_move(n):  # 抱块左侧移（ tag码也是用这个  ）
+    for i in range(0, n):
+        base_action.action("boxl_tkx")
+        time.sleep(0.2)
+
+
+def l_move(n):  # 左侧移（tag 和 七号到一号的路上）
+    for i in range(0, n):
+        base_action.action("l_move")
+        time.sleep(0.5)
+
+
+def r_movec(n):  # 右侧移（tag 和 七号到一号的路上）
+    for i in range(0, n):
+        base_action.action("r_moveyh301")
+        time.sleep(0.3)
+
+
+def r_moved(n):  # 右侧移（tag 和 七号到一号的路上）
+    for i in range(0, n):
+        base_action.action("r_moveyh404_1")
+        time.sleep(0.3)
+
+
+def r_moveb(n):  # 右侧移（tag 和 七号到一号的路上）
+    for i in range(0, n):
+        base_action.action("r_moves_zd")
+        time.sleep(0.1)
+
+
+def r_box_move(n):  # 一号码到三号码的右侧移
+    for i in range(0, n):
+        # time.sleep(0.5)
+        base_action.action("boxr1-tkx")
+        time.sleep(0.1)
+
+
+def BoxR_move1(n):  # 对正tag的小右侧移
+    for i in range(0, n):
+        base_action.action("x_tag_boxr_small")
+        time.sleep(0.3)
+
+
+def R_move1(n):  # 对正tag的小右侧移（空手）
+    for i in range(0, n):
+        base_action.action("right02move")
+        time.sleep(0.3)
+
+
+def L_move1(n):  # 对正tag的小左侧移（空手）
+    for i in range(0, n):
+        base_action.action("l_move_small")
+        print('左移1.5cm')
+        time.sleep(0.3)
+
+
+def BoxL_move1(n):  # 对正tag的小左侧移
+    for i in range(0, n):
+        base_action.action("boxlm-tkx")
+        time.sleep(0.3)
+
+
+# 死妈代码
+def sm(n):
+    for i in range(0, n):
+        base_action.action("sm")
+        time.sleep(0.3)
+
+
+# ****************************************************************函数区*********************************************************************
+
+# 获取图像
+def get_img():
+    global Chest_img, ChestOrg
+    global ret
+    image_reader_chest = ImgConverter()
+    while True:
+        ret, ChestOrg = image_reader_chest.chest_image()
+        time.sleep(0.3)
+        if ChestOrg is not None:
+            Chest_img = ChestOrg
+            time.sleep(0.05)
+            # Chest_img = cv2.flip(Chest_img, 1)
+        else:
+            time.sleep(0.3)
+            print("暂时未获取到图像")
+
+
+th2 = threading.Thread(target=get_img)
+th2.setDaemon(True)
+th2.start()
+
+
+# *************************************************************对正tag*************************************************************************
+
+def turn_to_tag(dis_x, dis_y, theta, x_offset=0, y_offset=0, theta_offset=0, x_threshold=0.03, y_threshold=0.02,
+                theta_threshold=5.8):
+    is_turn_done = False
+    check_flag = 0
+
+    x_error = dis_x - x_offset
+    y_error = dis_y - y_offset
+    theta_error = theta - theta_offset
+    print("机器人目前的位置:", "\n\tID:", marker[0], "\n\t", "前后:dis_x:", dis_x, "\n\t", "左右:dis_y:", dis_y, "\n\t",
+          "角度:theta:", theta, "\n\t", "theta_offset", theta_offset, sep='')
+    print("机器人偏差:\n\t前后:x_error = ", x_error, "\n\t左右:y_error = ", y_error, "\n\t角度:theta_error = ",
+          theta_error)
+
+    # 不偏离赛道
+    if step == 1:
+        if (x_error < x_threshold - 0.03):
+            print("后退", x_error, " < ", x_threshold - 0.03)
+            box_back(1)
+
+        elif (x_error > x_threshold + 0.2):
+            print("向前靠近标签0", x_error, " > ", x_threshold + 0.12)
+            box_go(1)
+
+        elif (theta_error + theta_threshold > 35):
+            print("1左转身", theta_error, " > ", 14 + theta_threshold)
+            BoxL_turn2(1)
+        elif (theta_error - theta_threshold < -35):
+            print("1右转身", theta_error, " < ", -14 - theta_threshold)
+            BoxR_turn2(1)
+
+        # 左右平移
+        elif (y_error > y_threshold + 0.05):
+            print("1左移动", y_error, " > ", y_threshold)
+            l_box_move(1)
+        elif (y_error <= -y_threshold - 0.05):
+
+            print("1右移动 ", y_error, " <= ", -y_threshold)
+            r_box_move(1)
+
+
+
+        # 方向平行与标签
+        elif (theta_error > theta_threshold):
+            print("2左转 ", theta_error, " > ", theta_threshold)
+            BoxL_turn1(1)
+        elif (theta_error < -theta_threshold):
+            print("2右转 ", theta_error, " < ", theta_threshold)
+            BoxR_turn1(1)
+
+        # 精确调整左右平移
+        elif (y_error > y_threshold):
+            print("1左移动", y_error, " > ", y_threshold)
+            BoxL_move1(1)
+        elif (y_error < -y_threshold):
+
+            print("1右移动 ", y_error, " < ", -y_threshold)
+            BoxR_move1(1)
+
+
+        elif (x_error > x_threshold + 0.12):
+            print("向前靠近标签1", x_error, " > ", x_threshold + 0.08)
+            box_go(1)
+        elif (x_error > x_threshold + 0.06):
+            print("向前靠近标签2", x_error, " > ", x_threshold + 0.06)
+            mhjbox_go(1)
+
+        else:
+            is_turn_done = True
+
+
+    elif step == 2:
+
+        if (x_error < x_threshold - 0.03):
+            print("后退", x_error, " < ", x_threshold - 0.03)
+            back(1)
+
+            # 快速靠近标签
+        if (x_error > x_threshold + 0.2):
+            print("向前靠近标签", x_error, " > ", x_threshold + 0.12)
+            go_fast2(1)
+
+        elif (theta_error + theta_threshold > 35):
+            print("1左转身", theta_error, " > ", 14 + theta_threshold)
+            L_turn2(1)
+        elif (theta_error - theta_threshold < -35):
+            print("1右转身", theta_error, " < ", -14 - theta_threshold)
+            R_turn2(1)
+
+        # 左右平移
+        elif (y_error > y_threshold + 0.05):
+            print("1左移动", y_error, " > ", y_threshold)
+            l_move(1)
+        elif (y_error <= -y_threshold - 0.05):
+
+            print("1右移动 ", y_error, " <= ", -y_threshold)
+            r_movec(1)
+
+
+        # 方向平行与标签
+        elif (theta_error > theta_threshold):
+            print("2左转 ", theta_error, " > ", theta_threshold)
+            L_turn1(1)
+        elif (theta_error < -theta_threshold):
+            print("2右转 ", theta_error, " < ", theta_threshold)
+            R_turn1(1)
+
+        # 精确调整左右平移
+        elif (y_error > y_threshold):
+            print("2左移动", y_error, " > ", y_threshold)
+            L_move1(1)
+        elif (y_error < -y_threshold):
+            print("2右移动 ", y_error, " < ", -y_threshold)
+            r_moveb(1)
+
+        # 靠近标签
+        elif (x_error > x_threshold + 0.12):
+            print("向前靠近标签", x_error, " > ", x_threshold + 0.08)
+            go_fast2(1)
+        elif (x_error > x_threshold + 0.06):
+            print("向前靠近标签", x_error, " > ", x_threshold + 0.06)
+            go_fast(1)
+        else:
+            is_turn_done = True
+            print("*************************************tag对正成功**************************************************")
+
+    time.sleep(0.2)
+    print(
+        "------------------------------------------------------------------------------------------------------------------")
+    return is_turn_done
+
+
+# *************************************************************识别色域*************************************************************************
+def find_box2(img, color_name):
+    global chest_circle_x, chest_circle_y, color_temp, img_flag, level, test_flag
+    if Chest_img is None:
+        print('等待获取图像中...')
+        time.sleep(0.3)
+    else:
+        box_img = img
+        box_img_bgr = cv2.cvtColor(box_img, cv2.COLOR_RGB2BGR)  # 将图片转换到BRG空间
+        box_img_hsv = cv2.cvtColor(box_img, cv2.COLOR_BGR2HSV)  # 将图片转换到HSV空间
+        box_img = cv2.GaussianBlur(box_img_hsv, (3, 3), 0)  # 高斯模糊
+        box_img_mask = cv2.inRange(box_img, color_range[color_name][0], color_range[color_name][1])  # 二值化
+        box_img_closed = cv2.erode(box_img_mask, np.ones((7, 7), np.uint8), iterations=4)  # 腐蚀
+        box_img_opened = cv2.dilate(box_img_mask, np.ones((4, 4), np.uint8), iterations=2)  # 膨胀    先腐蚀后运算等同于开运算
+        (contours, hierarchy) = cv2.findContours(box_img_opened, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+        # print(f"\n\n图像列表 == {len(contours)}")
+        if len(contours) != 0:
+            area = []
+            for cn in contours:
+                contour_area = math.fabs(cv2.contourArea(cn))
+                area.append(contour_area)
+            max_index = np.argmax(area)
+            (chest_circle_x, chest_circle_y), chest_radius = cv2.minEnclosingCircle(contours[max_index])
+            cv2.circle(img, (int(chest_circle_x), int(chest_circle_y)), int(chest_radius), (0, 0, 255))
+            # print('A','x=',chest_circle_x,'y=',chest_circle_y)
+
+            circle = cv2.minEnclosingCircle(contours[max_index])
+
+            # radius = circle[1]  # 获取圆的半径
+            # # 计算外接圆的面积
+            # area = math.pi * radius ** 2
+            # print(f"外接圆的面积是: {area}")
+            # if area < 36000 and area >15000:
+            #     test_flag += 1
+
+            # print(f"\n\ntest_flag == {test_flag}")
+            print(f"\n\ncolor_temp == {color_temp}")
+            if Debug:
+                cv2.imwrite('image.png', img)
+                cv2.imshow("Box", img)
+                cv2.waitKey(2000)
+
+        else:
+            print(f'{img_flag}:正在寻找目标')
+
+
+def find_box(img, color_name):
+    global chest_circle_x, chest_circle_y, color_temp, img_flag
+    if Chest_img is None:
+        print('等待获取图像中...')
+        time.sleep(0.3)
+    else:
+        box_img = img
+        box_img_bgr = cv2.cvtColor(box_img, cv2.COLOR_RGB2BGR)  # 将图片转换到BRG空间
+        box_img_hsv = cv2.cvtColor(box_img, cv2.COLOR_BGR2HSV)  # 将图片转换到HSV空间
+        box_img = cv2.GaussianBlur(box_img_hsv, (3, 3), 0)  # 高斯模糊
+        box_img_mask = cv2.inRange(box_img, color_range[color_name][0], color_range[color_name][1])  # 二值化
+        box_img_closed = cv2.erode(box_img_mask, np.ones((7, 7), np.uint8), iterations=4)  # 腐蚀
+        box_img_opened = cv2.dilate(box_img_mask, np.ones((4, 4), np.uint8), iterations=2)  # 膨胀    先腐蚀后运算等同于开运算
+        (contours, hierarchy) = cv2.findContours(box_img_opened, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+        if len(contours) != 0:
+            area = []
+            for cn in contours:
+                contour_area = math.fabs(cv2.contourArea(cn))
+                area.append(contour_area)
+            max_index = np.argmax(area)
+            (chest_circle_x, chest_circle_y), chest_radius = cv2.minEnclosingCircle(contours[max_index])
+            cv2.circle(img, (int(chest_circle_x), int(chest_circle_y)), int(chest_radius), (0, 0, 255))
+            print('A', 'x=', chest_circle_x, 'y=', chest_circle_y)
+
+            circle = cv2.minEnclosingCircle(contours[max_index])
+
+            radius = circle[1]  # 获取圆的半径
+            # 计算外接圆的面积
+            area = math.pi * radius ** 2
+            print(f"外接圆的面积是: {area}")
+            if area < 1000:
+                color_temp += 1
+
+            print(f"\n\ncolor_temp == {color_temp}")
+            if Debug:
+                cv2.imwrite('image.png', img)
+                cv2.imshow("Box", img)
+                cv2.waitKey(2000)
+
+            img_flag = 1
+
+        else:
+            print(f'{img_flag}:正在寻找目标')
+            color_temp += 1
+            img_flag -= 1
+
+
+# ****************************************************************检测抱块***********************************************************
+
+# def find_box2(img,color_name):
+#     global test_flag,img_flag
+#     # 将图像转换到HSV空间
+#     img_hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+
+#     # 高斯模糊
+#     img_blurred = cv2.GaussianBlur(img_hsv, (3, 3), 0)
+
+#     # 二值化
+#     img_mask = cv2.inRange(img_blurred, color_range[color_name][0], color_range[color_name][1])
+
+#     # 开运算去噪声
+#     kernel = np.ones((3, 3), np.uint8)
+#     img_opened = cv2.morphologyEx(img_mask, cv2.MORPH_OPEN, kernel)
+
+#     # 找到轮廓
+#     contours, _ = cv2.findContours(img_opened, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+#     # 初始化面积变量
+#     area = 0
+
+#     # 如果找到轮廓
+#     if len(contours) > 0:
+#         # 找到最大的轮廓
+#         largest_contour = max(contours, key=cv2.contourArea)
+
+#         # 计算最小外接圆
+#         (x, y), radius = cv2.minEnclosingCircle(largest_contour)
+
+#         # 计算外接圆的面积
+#         area = math.pi * radius ** 2
+
+#         print(f"外接圆的面积是: {area}")
+#         if area < 20000 and area >0:
+#             test_flag += 1
+
+#         # 可选：在原图上绘制外接圆
+#         if Debug:
+#             img_with_circle = cv2.cvtColor(img, cv2.COLOR_HSV2BGR)
+#             cv2.circle(img_with_circle, (int(x), int(y)), int(radius), (0, 0, 255), 2)
+#             cv2.imshow("Circle", img_with_circle)
+#             cv2.waitKey(2000)
+#     else:
+#             print(f'{img_flag}:正在寻找目标')
+#             img_flag -= 1
+
+
+# ********************************************************************************搬箱子****************************************************************
+def goto_box():
+    global level, ID, LeftRight, FrontBack, Anglechange, color_temp
+    global box_flag_back
+
+    if chest_circle_x is None:
+        print('等待中获取坐标中...')
+        time.sleep(0.3)
+    else:
+        trun_box(chest_circle_x, chest_circle_y)
+        if chest_circle_x < 210:
+            print("正在大左侧移 ", chest_circle_x)
+            base_action.action("left3move")
+            LeftRight -= 1
+        elif chest_circle_x < 280:
+            print("正在小左侧移 ", chest_circle_x)
+            base_action.action("l_move_small2")
+            LeftRight -= 0.5
+        elif chest_circle_x > 400:
+            print("正在大右侧移 ", chest_circle_x)
+            base_action.action("right3move")
+            LeftRight += 1
+        elif chest_circle_x > 360:
+            print("正在小右侧移 ", chest_circle_x)
+            base_action.action("right02move")
+            LeftRight += 0.5
+        else:
+            if box_flag_back >= 2:
+                print(
+                    "*****************************************忍无可忍，开始抱箱子**************************************")
+                Get_box(1)
+                box_go(2)
+                level = "test_box"
+
+            elif chest_circle_y < 310:
+                print("前进", chest_circle_y)
+                base_action.action("fastForward1s")
+
+                if abs(Anglechange) < 3:
+                    FrontBack += 1
+
+            elif chest_circle_y >= 360:
+                print("后退", chest_circle_y)
+                base_action.action("back_kong")
+                print(box_flag_back)
+
+                box_flag_back += 1
+                FrontBack -= 1
+            else:
+                print("*****************************************开始抱箱子**************************************")
+                Get_box(1)
+                box_go(1)
+                level = "test_box"
+
+        time.sleep(0.2)
+
+
+# *********************************************************************加入对快角度*******************************************************************
+def trun_box(chest_circle_x, chest_circle_y):
+    global LeftRight, FrontBack, Anglechange
+    x = chest_circle_x
+    y = chest_circle_y
+
+    angle = x / (math.sqrt(x * x + y * y))
+
+    if x > 400 and y > 200:  # 右侧近距离但是贴边
+
+        if angle > 0.866:
+            base_action.action("TRUN_R_BOX2")
+            # 右转为负
+            print("对块纠正，向右纠正")
+            Anglechange -= 1
+
+    elif x > 350 and y < 180:  # 右侧远距离且贴边
+
+        if angle > 0.866 and angle < 0.933:
+            base_action.action("l_move")
+            base_action.action("TRUN_R_BOX2")
+            print("对块纠正，向右纠正")
+
+            Anglechange -= 1
+
+    # elif x  < 150 and y > 200:      #左侧近距离但容易撞板
+
+    #         #base_action.action("r_move")
+    #         BoxL_turn3(1)
+    #         base_action.action("BOX_R")
+    #         base_action.action("BOX_R")
+    #         base_action.action("BOX_R")
+    #         base_action.action("BOX_R")
+    #         BoxL_turn3(1)
+
+    #         # 左转为负
+    #         print("对块纠正，向右纠正")
+    #         Anglechange += 3
+
+    elif x < 250 and y < 180:  # 左侧远距离--耗费时间长
+
+        base_action.action("TRUN_L_BOX2")
+        print("对块纠正，向左纠正")
+        Anglechange += 1
+
+
+# ***************************************************路径追踪*****************************************
+def find_road():
+    global LeftRight, FrontBack, Anglechange
+
+    print("开始追溯")
+    print(f"LeftRight = {LeftRight} \tFrontBack = {FrontBack} \tAnglechange = {Anglechange}\n")
+
+    temp = Anglechange
+    if abs(Anglechange) >= 0:
+        # 右转
+        while abs(Anglechange - 6) > 0:
+            print("纠正角度\n\n")
+            if Anglechange < 6:
+                Anglechange += 3
+                print("左转纠正\n\n")
+                BoxL_turn3(1)
+
+                if temp <= 0:
+                    BoxL_turn3(2)
+                    temp = 1
+                    print(f"LeftRight = {LeftRight} \tFrontBack = {FrontBack} \tAnglechange = {Anglechange}\n")
+                    break
+            else:
+                Anglechange -= 1
+                print("右转纠正\n\n")
+                base_action.action("TRUN_R_BOX2")
+
+            print(f"LeftRight = {LeftRight} \tFrontBack = {FrontBack} \tAnglechange = {Anglechange}\n")
+
+        if LeftRight > 0:
+            # 在右侧
+            while LeftRight > 0:
+                print("向左纠正\n")
+                LeftRight -= 4
+
+                base_action.action("BOX-L-1")
+                print(f"LeftRight = {LeftRight} \tFrontBack = {FrontBack} \tAnglechange = {Anglechange}\n")
+            while LeftRight < 0:
+                print("向右纠正\n")
+                LeftRight += 4
+
+                base_action.action("box_r_go")
+                print(f"LeftRight = {LeftRight} \tFrontBack = {FrontBack} \tAnglechange = {Anglechange}\n")
+
+        if FrontBack > 0:
+            while FrontBack > 0:
+                print("纠正前后\n")
+                FrontBack -= 3
+                mhjbox_go(1)
+                print(f"LeftRight = {LeftRight} \tFrontBack = {FrontBack} \tAnglechange = {Anglechange}\n")
+
+    LeftRight = 0
+    FrontBack = 0
+    Anglechange = 0
+
+
+file_path = 'xiuxi.txt'
+
+
+# 休息
+def modify_first_number(file_path, new_number):
+    global first_number
+    try:
+        # 打开文件并读取内容
+        with open('xiuxi.txt', 'r') as file:
+            # print("读取成功")
+            content = file.readlines()
+
+        # 查找第一个数字
+        for i, line in enumerate(content):
+            if any(char.isdigit() for char in line):
+                # 找到第一个数字
+                first_number = ''.join(filter(str.isdigit, line))
+                # print("查找成功")
+                # 替换数字
+                content[i] = line.replace(first_number, str(new_number))
+                break
+        # 将修改后的内容写回文件
+
+        with open('xiuxi.txt', 'w') as file:
+
+            file.writelines(content)
+        #    print("修改成功")
+        return "数字已成功修改。"
+
+
+    except Exception as e:
+        print(f"发生错误：{e.with_traceback}")
+        return f"发生错误：{e}"
+
+
+##**************************************************************************main区************************************************************************************
+##**************************************************************************main区************************************************************************************
+if __name__ == '__main__':
+    rospy.init_node('image_listener')  # ROS节点初始化
+    Tag = TagConverter()
+    time.sleep(0.2)
+    ID = 0
+    step = 1
+    flag = 0
+    ly = 0
+    ly_flag = 0
+
+    new_number = 1
+    first_number = 1
+
+    level = "start_box"
+    time.sleep(0.2)
+    while ChestOrg is None:
+        print('等待相机初始化...')
+        time.sleep(0.1)
+
+    print('启动机器人程序')
+
+    # 读取休息状态
+    with open('xiuxi.txt', 'r') as file:
+        content = file.readlines()
+    for i, line in enumerate(content):
+        if any(char.isdigit() for char in line):
+            first_number = ''.join(filter(str.isdigit, line))
+
+    # ***********************************初始动作***********************#
+    if first_number == 0 or first_number == "0":
+        go_fast1(2)
+    else:
+        Get_box(1)
+        level = "end_box"
+        l_box_move(6)
+
+    # *****************************************************************#
+
+    while not rospy.is_shutdown():
+        if ID == 0:  # 搬箱子阶段
+            if level == "start_box":
+                img_flag = 0
+                find_box(Chest_img, 'green')
+                if img_flag != 1:
+                    find_box(Chest_img, 'orange')
+
+                if img_flag == 1:
+                    print(f"[发现目标] 直接抓取: {chest_circle_x}, {chest_circle_y}")
+                    Get_box(1)
+                    level = "test_box"
+                    box_flag_back = 0
+                else:
+                    base_action.action("tag_RTurn_big")
+
+                time.sleep(0.1)
+
+            elif level == "test_box":
+                # 抓取动作完成后的确认逻辑
+                # 这里的 test_flag 建议根据你的实际应用场景保留或简化
+                level = "end_box"
+                ly = 1
+                color_temp = 0
+                test_flag = 0
+
+            elif level == "end_box":
+                if step == 1:
+                    l_box_move(3)
+                elif step == 2:
+                    find_road()
+                    step = 1
+                ID += 1
+
+
+        else:
+            marker = Tag.get_nearest_marker()
+
+            if len(marker) == 0:
+                print(ID, step, "无tag")
+
+                # 单独处理 tag1：看不到 tag1 就向前找回；其他 tag 继续后退
+                if step == 1 and ID == 1:
+                    print("看不到tag1，执行前进纠正")
+                    box_go(1)
+
+                elif ((ID == 1 or ID == 2 or ID == 3 or ID == 4 or ID == 5) and step == 1):
+                    print("抱着箱子后退")
+                    box_back(1)
+
+                # 看不到tag码
+                elif (step == 2 and (ID == 5 or ID == 4)):
+                    print("不抱着箱子后退")
+                    back(1)
+
+                # 扫完六号码，拐角看不到一号码
+                elif (ID == 4 and flag != 0 and level == "start_moving"):
+                    print("*********************************看不见一号码，向前靠近***********************************")
+                    box_go1(1)
+
+
+            else:
+                robot_tag_x = marker[1]
+                robot_tag_y = marker[2]
+                tag_yaw = marker[3] + 90  # artag 正方向与机器人正方向对齐
+
+                if step == 1:
+                    if marker[0] == 1:
+                        if ID == 1:
+                            level = "start_moving"
+                            result = turn_to_tag(robot_tag_x - 0.015, robot_tag_y, tag_yaw, 0.08, 0, 0,
+                                                 x_threshold=0.03, y_threshold=0.04, theta_threshold=8)
+                            if result == True:
+                                print('一号码对正完毕，前进对正二号码')
+                                time.sleep(0.3)
+                                ID += 1
+                                box_gogo(1)
+                                # box_go(3)
+                                # r_box_move(1)
+                                # r_box_move(3)
+                                # box_go(1)
+                        else:
+                            print("前进")
+                            box_go(1)
+
+                    elif marker[0] == 2:
+                        if ID == 1:  # 如果错过了二一码看到了二号码，就直接对二号码
+                            box_gogo(1)
+                            ID = 2
+
+                        if ID == 2:
+                            result = turn_to_tag(robot_tag_x, robot_tag_y, tag_yaw, 0.08, 0, 0, x_threshold=0.03,
+                                                 y_threshold=0.03, theta_threshold=6)
+                            if result == True:
+                                print('二号码对正完毕，右侧移对正三号码')
+                                ID += 1
+                                r_box_move(2)
+                        else:
+                            # BoxR_turn2(1)
+                            r_box_move(1)
+                            print('右移')
+
+                    elif marker[0] == 3:
+                        if ID == 2:  # 如果错过了二码看到了三号码，就直接对三号码
+                            ID = 3
+                        if ID == 3:
+                            result = turn_to_tag(robot_tag_x + 0.03, robot_tag_y - 0.2, tag_yaw, 0.08, 0, 0,
+                                                 x_threshold=0.03, y_threshold=0.03, theta_threshold=7)
+                            if result == True:
+                                print('三号码对正完毕，右侧移对正四号码')
+                                ID += 1
+                                # time.sleep(0.3)
+                                r_box_move(1)
+                                box_gogo(1)
+                                # box_go(4)
+                        else:
+                            print("右移")
+                            r_box_move(1)
+
+
+                    elif marker[0] == 4:
+                        if ID == 3:  # 如果错过了三码看到了④号码，就直接对四号码
+                            ID = 4
+                        if ID == 4:
+                            result = turn_to_tag(robot_tag_x + 0.03, robot_tag_y + 0.05, tag_yaw, 0.12, 0, 0,
+                                                 x_threshold=0.0355, y_threshold=0.03, theta_threshold=14)
+                            if result == True:
+                                print('四号码对正完毕，左移三步，前进两步后放下，不看五号')
+                                l_box_move(5)
+                                box_go(3)
+                                fang(1)
+                                begin(1)
+                                step = 2
+                                ID = 6
+
+                        elif ID == 5:
+                            l_box_move(1)
+                            print('左移')
+
+                    elif marker[0] == 5:
+                        pass
+
+                elif step == 2:
+                    if marker[0] == 6:
+                        if ID == 5:
+                            result = turn_to_tag(robot_tag_x + 0.03, robot_tag_y + 0.1, tag_yaw, 0.05, -0.1, 0, 0.05,
+                                                 0.05)
+                            if result == True:
+                                print('六号码对正完毕，左侧移对正七号码')
+                                ID += 1
+                                l_move(3)
+                                go_fast2(4)
+                    if marker[0] == 7:
+                        if ID == 6:
+                            result = turn_to_tag(robot_tag_x, robot_tag_y, tag_yaw, 0.08, 0, 0, x_threshold=0.03,
+                                                 y_threshold=0.03, theta_threshold=6)
+                            if result == True:
+                                print('七号码对正完毕，右侧移对正1号码')
+                                ID += 1
+
+                                r_moved(4)
+                                # R_turn1(1)
+                                r_moved(3)
+                                go_fast2(3)
+                                # Qgo_fast2(1)
+
+                                ID = 0
+                                flag = 0
+                                level = "start_box"
+
+
+                    elif marker[0] == 4:
+                        if ID == 5:
+                            R_turn2(1)
+                            print('右转')
+
+                    elif marker[0] == 7:
+                        if ID == 5:
+                            R_turn2(1)
+                            print('右转')
+
+            time.sleep(0.1)
