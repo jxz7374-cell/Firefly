@@ -1,0 +1,986 @@
+<html xmlns:v='urn:schemas-microsoft-com:vml'
+xmlns:o='urn:schemas-microsoft-com:office:office'
+xmlns:w='urn:schemas-microsoft-com:office:word'
+xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+<meta http-equiv=Content-Type content='text/html; charset=gb2312'>
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content='Microsoft Word 11'>
+<meta name=Originator content='Microsoft Word 11'>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>jwbsjbwzw</o:Author>
+  <o:LastAuthor>best168</o:LastAuthor>
+  <o:Revision>13</o:Revision>
+  <o:TotalTime>10</o:TotalTime>
+  <o:Created>2014-03-31T01:12:00Z</o:Created>
+  <o:LastSaved>2014-03-31T01:23:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>254</o:Words>
+  <o:Characters>1454</o:Characters>
+  <o:Company>CHINA</o:Company>
+  <o:Lines>12</o:Lines>
+  <o:Paragraphs>3</o:Paragraphs>
+  <o:CharactersWithSpaces>1705</o:CharactersWithSpaces>
+  <o:Version>11.9999</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Print</w:View>
+  <w:Zoom>120</w:Zoom>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:PunctuationKerning/>
+  <w:DrawingGridVerticalSpacing>7.8 磅</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:DisplayVerticalDrawingGridEvery>2</w:DisplayVerticalDrawingGridEvery>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:Compatibility>
+   <w:SpaceForUL/>
+   <w:BalanceSingleByteDoubleByteWidth/>
+   <w:DoNotLeaveBackslashAlone/>
+   <w:ULTrailSpace/>
+   <w:DoNotExpandShiftReturn/>
+   <w:AdjustLineHeightInTable/>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:UseFELayout/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState='false' LatentStyleCount='156'>
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ @font-face
+	{font-family:宋体;
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-alt:SimSun;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 135135232 16 0 262145 0;}
+@font-face
+	{font-family:黑体;
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-alt:SimHei;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:1 135135232 16 0 262144 0;}
+@font-face
+	{font-family:仿宋_GB2312;
+	panose-1:2 1 6 9 3 1 1 1 1 1;
+	mso-font-charset:134;
+	mso-generic-font-family:modern;
+	mso-font-pitch:fixed;
+	mso-font-signature:1 135135232 16 0 262144 0;}
+@font-face
+	{font-family:'\@宋体';
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 135135232 16 0 262145 0;}
+@font-face
+	{font-family:'\@黑体';
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:1 135135232 16 0 262144 0;}
+@font-face
+	{font-family:'\@仿宋_GB2312';
+	panose-1:2 1 6 9 3 1 1 1 1 1;
+	mso-font-charset:134;
+	mso-generic-font-family:modern;
+	mso-font-pitch:fixed;
+	mso-font-signature:1 135135232 16 0 262144 0;}
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:'';
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	mso-pagination:none;
+	font-size:10.5pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:'Times New Roman';
+	mso-fareast-font-family:宋体;
+	mso-font-kerning:1.0pt;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	mso-pagination:none;
+	tab-stops:center 207.65pt right 415.3pt;
+	layout-grid-mode:char;
+	border:none;
+	mso-border-bottom-alt:solid windowtext .75pt;
+	padding:0cm;
+	mso-padding-alt:0cm 0cm 1.0pt 0cm;
+	font-size:9.0pt;
+	font-family:'Times New Roman';
+	mso-fareast-font-family:宋体;
+	mso-font-kerning:1.0pt;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:none;
+	tab-stops:center 207.65pt right 415.3pt;
+	layout-grid-mode:char;
+	font-size:9.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:'Times New Roman';
+	mso-fareast-font-family:宋体;
+	mso-font-kerning:1.0pt;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin-top:7.8pt;
+	margin-right:0cm;
+	margin-bottom:15.6pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:21.0pt;
+	mso-line-height-rule:exactly;
+	mso-pagination:none;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:'Times New Roman';
+	mso-fareast-font-family:宋体;
+	mso-font-kerning:1.0pt;
+	font-weight:bold;
+	mso-bidi-font-weight:normal;}
+span.GramE
+	{mso-style-name:'';
+	mso-gram-e:yes;}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	mso-header-margin:42.55pt;
+	mso-footer-margin:49.6pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+@page Section2
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	mso-header-margin:36.0pt;
+	mso-footer-margin:36.0pt;
+	mso-paper-source:0;}
+div.Section2
+	{page:Section2;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ table.MsoNormalTable
+	{mso-style-name:普通表格;
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:'';
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:'Times New Roman';
+	mso-fareast-font-family:'Times New Roman';
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext='edit' spidmax='4098'/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext='edit'>
+  <o:idmap v:ext='edit' data='1'/>
+ </o:shapelayout></xml><![endif]-->
+</head><body lang=ZH-CN style='tab-interval:21.0pt;text-justify-trim:punctuation'><div class=Section1 align=center><p class=MsoNormal align=center style='text-align:center;line-height:50.0pt;mso-line-height-rule:exactly'><b style='mso-bidi-font-weight:normal'><span style='font-size:24.0pt;mso-bidi-font-size:10.0pt;font-family:黑体;letter-spacing:1.5pt'>黄冈师范学院<span lang=EN-US><o:p></o:p></span></span></b></p><p class=MsoNormal align=center style='text-align:center;line-height:50.0pt;mso-line-height-rule:exactly'><b style='mso-bidi-font-weight:normal'><span style='font-size:24.0pt;mso-bidi-font-size:10.0pt;font-family:黑体;letter-spacing:1.5pt'>大学生创新创业训练计划项目<span lang=EN-US><o:p></o:p></span></span></b></p><p class=MsoNormal align=center style='text-align:center;line-height:50.0pt;mso-line-height-rule:exactly'><b style='mso-bidi-font-weight:normal'><span style='font-size:24.0pt;mso-bidi-font-size:10.0pt;font-family:黑体;letter-spacing:1.5pt'>申报表<span lang=EN-US><o:p></o:p></span></span></b></p><p class=MsoNormal style='text-indent:63.0pt;mso-char-indent-count:4.5'><span style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:黑体'>项目名称：<u><span lang=EN-US><span style='mso-spacerun:yes'>胃癌病理图像弱监督分类与可解释研究</span><o:p></o:p></span></u></span></p><p class=MsoNormal style='text-indent:63.0pt;mso-char-indent-count:4.5'><span lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:黑体'><o:p>&nbsp;</o:p></span></p><p class=MsoNormal style='text-indent:63.0pt;mso-char-indent-count:4.5'><span style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:黑体'>项目类别：<u><span lang=EN-US><span style='mso-spacerun:yes'>&nbsp;&nbsp;1&nbsp;&nbsp;</span></span></u><span lang=EN-US>（1-创新训练、2-创业训练、3-创业实践）</span><span lang=EN-US><o:p></o:p></span></span></p><p class=MsoNormal style='text-indent:63.0pt;mso-char-indent-count:4.5'><span lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:黑体'><o:p>&nbsp;</o:p></span></p><p class=MsoNormal style='text-indent:63.0pt;mso-char-indent-count:4.5'><span style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:黑体'>负 责 人：<u><span lang=EN-US><span style='mso-spacerun:yes'>曾怡帆&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><o:p></o:p></span></u></span></p><p class=MsoNormal style='text-indent:63.0pt;mso-char-indent-count:4.5'><span lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:黑体'><o:p>&nbsp;</o:p></span></p><p class=MsoNormal style='text-indent:63.0pt;mso-char-indent-count:4.5'><span style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:黑体'>所在院系：<u><span lang=EN-US><span style='mso-spacerun:yes'>计算机与人工智能学院&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><o:p></o:p></span></u></span></p><p class=MsoNormal style='text-indent:63.0pt;mso-char-indent-count:4.5'><span lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:黑体'><o:p>&nbsp;</o:p></span></p><p class=MsoNormal style='text-indent:63.0pt;mso-char-indent-count:4.5'><span style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:黑体'>专业年级：<u><span lang=EN-US><span style='mso-spacerun:yes'>计算机科学与技术&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><o:p></o:p></span></u></span></p><p class=MsoNormal style='text-indent:63.0pt;mso-char-indent-count:4.5'><span lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:黑体'><o:p>&nbsp;</o:p></span></p><p class=MsoNormal style='text-indent:63.0pt;mso-char-indent-count:4.5'><span style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:黑体'>联系电话：<u><span lang=EN-US><span style='mso-spacerun:yes'>19838250350&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><o:p></o:p></span></u></span></p><p class=MsoNormal style='text-indent:63.0pt;mso-char-indent-count:4.5'><span lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:黑体'><o:p>&nbsp;</o:p></span></p><p class=MsoNormal style='text-indent:63.0pt;mso-char-indent-count:4.5'><span style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:黑体'>指导教师：<span lang=EN-US><u><span style='mso-spacerun:yes'>涂勇&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></u></span>职称：<u><span lang=EN-US><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><o:p></o:p></span></u></span></p><p class=MsoNormal style='text-indent:63.0pt;mso-char-indent-count:4.5'><span lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:黑体'><o:p>&nbsp;</o:p></span></p><p class=MsoNormal style='text-indent:63.0pt;mso-char-indent-count:4.5'><span style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:黑体'>　　　　　<span lang=EN-US><u><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></u></span>职称：<u><span lang=EN-US><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><o:p></o:p></span></u></span></p><p class=MsoNormal style='text-indent:63.0pt;mso-char-indent-count:4.5'><span lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:黑体'><o:p>&nbsp;</o:p></span></p><p class=MsoNormal style='text-indent:63.0pt;mso-char-indent-count:4.5'><span style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:黑体'>申报日期：<u><span lang=EN-US><span style='mso-spacerun:yes'>&nbsp;&nbsp;2026&nbsp;&nbsp; </span></span></u>年<u><span lang=EN-US><span style='mso-spacerun:yes'>&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;</span></span></u>月<u><span lang=EN-US><span style='mso-spacerun:yes'>&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;</span></span></u>日<span lang=EN-US><o:p></o:p></span></span></p><p class=MsoNormal style='text-indent:63.0pt;mso-char-indent-count:4.5'><span lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:黑体'><o:p>&nbsp;</o:p></span></p><p class=MsoNormal style='text-indent:63.0pt;mso-char-indent-count:4.5'><span lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:黑体'><o:p>&nbsp;</o:p></span></p><p class=MsoNormal style='text-indent:63.0pt;mso-char-indent-count:4.5'><span lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:黑体'><o:p>&nbsp;</o:p></span></p><p class=MsoNormal style='text-indent:63.0pt;mso-char-indent-count:4.5'><span lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:黑体'><o:p>&nbsp;</o:p></span></p><p class=MsoNormal style='text-indent:63.0pt;mso-char-indent-count:4.5'><span lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:黑体'><o:p>&nbsp;</o:p></span></p><p class=MsoNormal style='text-indent:63.0pt;mso-char-indent-count:4.5'><span lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:黑体'><o:p>&nbsp;</o:p></span></p><p class=MsoNormal style='text-indent:63.0pt;mso-char-indent-count:4.5'><span lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:黑体'><o:p>&nbsp;</o:p></span></p><p class=MsoNormal style='text-indent:63.0pt;mso-char-indent-count:4.5'><span lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:黑体'><o:p>&nbsp;</o:p></span></p><p class=MsoNormal style='text-indent:63.0pt;mso-char-indent-count:4.5'><span lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:黑体'><o:p>&nbsp;</o:p></span></p><p class=MsoNormal style='text-indent:63.0pt;mso-char-indent-count:4.5'><span lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:黑体'><o:p>&nbsp;</o:p></span></p><p class=MsoNormal style='text-indent:63.0pt;mso-char-indent-count:4.5'><span lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:10.0pt;font-family:黑体'><o:p>&nbsp;</o:p></span></p><p class=MsoNormal align=center style='text-align:center;line-height:28.0pt;mso-line-height-rule:exactly'><span style='font-size:15.0pt;font-family:黑体'>黄冈师范学院教务部<span lang=EN-US><span style='mso-spacerun:yes'>&nbsp; </span></span>制表<span lang=EN-US><o:p></o:p></span></span></p><p class=MsoNormal align=center style='margin-bottom:23.4pt;text-align:center'><b style='mso-bidi-font-weight:normal'><span style='font-size:22.0pt;mso-bidi-font-size:10.0pt;font-family:黑体'>填 报 说 明<span lang=EN-US><o:p></o:p></span></span></b></p><p class=MsoNormal align=left style='text-align:left;text-indent:28.0pt;
+mso-char-indent-count:2.0;line-height:200%'><span style='font-size:14.0pt;
+mso-bidi-font-size:12.0pt;line-height:200%;font-family:仿宋_GB2312'>一、填写申报表之前，请认真阅读《黄冈师范学院大学生创新创业训练计划项目管理办法》及其他相关文件。<span lang=EN-US><o:p></o:p></span></span></p><p class=MsoNormal align=left style='text-align:left;text-indent:28.0pt;
+mso-char-indent-count:2.0;line-height:200%'><span style='font-size:14.0pt;
+mso-bidi-font-size:12.0pt;line-height:200%;font-family:仿宋_GB2312'>二、请实事求是、逐条、认真地填写申报表中的各项内容。表达应明确、严谨、简洁。<span lang=EN-US><o:p></o:p></span></span></p><p class=MsoNormal align=left style='text-align:left;text-indent:28.0pt;
+mso-char-indent-count:2.0;line-height:200%'><span style='font-size:14.0pt;
+mso-bidi-font-size:12.0pt;line-height:200%;font-family:仿宋_GB2312'>三、“项目所属一级学科”应是哲学、经济学、法学、教育学、文学、艺术学、历史学、理学、工学、农学、医学和管理学12个一级学科门类中的一种或多种（跨学科）。<span lang=EN-US><o:p></o:p></span></span></p><p class=MsoNormal align=left style='text-align:left;text-indent:28.0pt;
+mso-char-indent-count:2.0;line-height:200%'><span style='font-size:14.0pt;
+mso-bidi-font-size:12.0pt;line-height:200%;font-family:仿宋_GB2312'>四、“负责人及团队成员信息”第一栏请填写项目负责人基本信息。<span lang=EN-US><o:p></o:p></span></span></p><p class=MsoNormal align=left style='text-align:left;text-indent:28.0pt;
+mso-char-indent-count:2.0;line-height:200%'><span style='font-size:14.0pt;
+mso-bidi-font-size:12.0pt;line-height:200%;font-family:仿宋_GB2312'>五、申报表请用A4纸打印，表中除签字盖章内容，请尽量打印填写，页面空格不够时请自行加页，做成附件附于表格最后，于左侧装订成册。申报表需提交一式三份，需经项目参与人员签字，指导教师和所在学院审查、签署意见并加盖印章。<span lang=EN-US><o:p></o:p></span></span></p></div><span lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:12.0pt;font-family:
+仿宋_GB2312;mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';
+mso-font-kerning:1.0pt;mso-ansi-language:EN-US;mso-fareast-language:ZH-CN;
+mso-bidi-language:AR-SA'><br clear=all style='page-break-before:always;
+mso-break-type:section-break'></span><div class=Section2><div><div align=center><table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 style='border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:.5pt solid windowtext;mso-border-insidev:.5pt solid windowtext'><tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;height:22.6pt'><td width=620 colspan=7 valign=middle style='width:465.0pt;border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:22.6pt'>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span style='font-size:15.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>一、项目概况</span></b><b style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'><o:p></o:p></span></b></p></td></tr><tr style='mso-yfti-irow:1;height:37.15pt'>
+  <td width=148 colspan=2 valign=middle style='width:113.6pt;border:solid windowtext 1.0pt;border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=center style='text-align:center; line-height:21.0pt;mso-line-height-rule:exactly'><b><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体;mso-bidi-font-weight:bold'>项目名称<span lang=EN-US><o:p></o:p></span></span></b></p></td>
+  <td width=472 colspan=5 valign=middle style='border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=center style='text-align:left; line-height:21.0pt; mso-line-height-rule:exactly'><span lang=EN-US style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;font-family:宋体;mso-bidi-font-weight:bold'>胃癌病理图像弱监督分类与可解释研究<span lang=EN-US><o:p>&nbsp;</o:p></span></span></p></td></tr><tr style='mso-yfti-irow:2;height:37.15pt'>
+  <td width=148 colspan=2 valign=middle style='width:113.6pt;border:solid windowtext 1.0pt;border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=center style='text-align:center; line-height:21.0pt;mso-line-height-rule:exactly'><b><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体;mso-bidi-font-weight:bold'>项目所属一级学科<span lang=EN-US><o:p></o:p></span></span></b></p></td>
+  <td width=472 colspan=5 valign=middle style='border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=center style='text-align:left; line-height:21.0pt; mso-line-height-rule:exactly'><span lang=EN-US style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;font-family:宋体;mso-bidi-font-weight:bold'>计算机类<span lang=EN-US><o:p>&nbsp;</o:p></span></span></p></td></tr><tr style='mso-yfti-irow:3;height:37.15pt'>
+  <td width=148 colspan=2 valign=middle style='border:solid windowtext 1.0pt;border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:center;line-height:21.0pt;mso-line-height-rule:exactly'><b><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体;mso-bidi-font-weight:bold'>申请经费（元）<span lang=EN-US><o:p></o:p></span></span></b></p></td>
+  <td width=300 colspan=3 valign=middle style='border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal style='line-height:21.0pt;mso-line-height-rule:exactly'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体;mso-bidi-font-weight:
+  bold'><b>大 写：</b>壹万元整<span lang=EN-US><o:p></o:p></span></span></p>
+  </td>
+  <td width=172 colspan=2 valign=middle style='border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal style='line-height:21.0pt;mso-line-height-rule:exactly'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体;mso-bidi-font-weight:
+  bold'><b>小 写：</b>￥10000<span lang=EN-US><o:p></o:p></span></span></p></td></tr><tr style='mso-yfti-irow:4;height:37.15pt'>
+  <td width=148 colspan=2 valign=middle style='width:113.6pt;border:solid windowtext 1.0pt;border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=center style='text-align:center; line-height:21.0pt;mso-line-height-rule:exactly'><b><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体;mso-bidi-font-weight:bold'>项目起止时间<span lang=EN-US><o:p></o:p></span></span></b></p></td>
+  <td width=472 colspan=5 valign=middle style='border-top:none;border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=center style='text-align:left; line-height:21.0pt; mso-line-height-rule:exactly'><span lang=EN-US style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;font-family:宋体;mso-bidi-font-weight:bold'>2026-03-29 至 2027-03-29<span lang=EN-US><o:p>&nbsp;</o:p></span></span></p></td></tr><tr style='mso-yfti-irow:5;height:22.85pt'>\n<td width=30 rowspan=6 style='width:34.1pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:22.85pt'>
+  <p class=MsoNormal align=center style='margin-top:0cm;margin-right:5.65pt;
+  margin-bottom:0cm;margin-left:5.65pt;margin-bottom:.0001pt;text-align:center;
+  line-height:21.0pt;mso-line-height-rule:exactly'><b><span style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;font-family:宋体'>负责人及团队成员信息<span lang=EN-US><o:p></o:p></span></b></span></p></td><td width=118 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>姓  名<span lang=EN-US><o:p></o:p></span></b></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>学  号<span lang=EN-US><o:p></o:p></span></b></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>学院、专业<span lang=EN-US><o:p></o:p></span></b></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>联系电话<span lang=EN-US><o:p></o:p></span></b></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>E-mail<span lang=EN-US><o:p></o:p></span></b></span></p>
+  </td><td width=72 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>签名<span lang=EN-US><o:p></o:p></span></b></span></p>
+  </td></tr>
+<tr style='mso-yfti-irow:6;height:22.85pt'>
+<td width=118 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>曾怡帆<span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>2025310140201<span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>计算机科学与技术<span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>19838250350<span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>2657702339@qq.com<span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=72 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'><span lang=EN-US><o:p></o:p></span></span></p>
+  </td></tr>
+<tr style='mso-yfti-irow:7;height:22.85pt'>
+<td width=118 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>李诗妍<span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>2025220340111<span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>网络工程<span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>17688888703<span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>1271612546@qq.com<span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=72 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'><span lang=EN-US><o:p></o:p></span></span></p>
+  </td></tr>
+<tr style='mso-yfti-irow:8;height:22.85pt'>
+<td width=118 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>占嘉欣<span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>2025310540228<span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>人工智能<span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>15523725957<span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>zj32ch@163.com<span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=72 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'><span lang=EN-US><o:p></o:p></span></span></p>
+  </td></tr>
+<tr style='mso-yfti-irow:9;height:22.85pt'>
+<td width=118 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'><span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'><span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'><span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'><span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'><span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=72 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'><span lang=EN-US><o:p></o:p></span></span></p>
+  </td></tr>
+<tr style='mso-yfti-irow:10;height:22.85pt'>
+<td width=118 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'><span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'><span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'><span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'><span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'><span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=72 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'><span lang=EN-US><o:p></o:p></span></span></p>
+  </td></tr>
+<tr style='mso-yfti-irow:11;height:22.85pt'>
+<td width=30 rowspan=4 style='width:34.1pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:22.85pt'>
+  <p class=MsoNormal align=center style='margin-top:0cm;margin-right:5.65pt;
+  margin-bottom:0cm;margin-left:5.65pt;margin-bottom:.0001pt;text-align:center;
+  line-height:21.0pt;mso-line-height-rule:exactly'><b><span style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;font-family:宋体'>指导教师信息<span lang=EN-US><o:p></o:p></span></b></span></p></td><td width=118 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>姓名（签名）<span lang=EN-US><o:p></o:p></span></b></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>学　院<span lang=EN-US><o:p></o:p></span></b></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>职　称<span lang=EN-US><o:p></o:p></span></b></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>联系电话<span lang=EN-US><o:p></o:p></span></b></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>E-mail<span lang=EN-US><o:p></o:p></span></b></span></p>
+  </td><td width=72 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>签名<span lang=EN-US><o:p></o:p></span></b></span></p>
+  </td></tr>
+<tr style='mso-yfti-irow:12;height:22.85pt'>
+<td width=118 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>涂勇<span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>计算机与人工智能学院<span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>未定<span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>13971713662<span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>7181987@qq.com<span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=72 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'><span lang=EN-US><o:p></o:p></span></span></p>
+  </td></tr>
+<tr style='mso-yfti-irow:13;height:22.85pt'>
+<td width=118 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'><span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'><span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'><span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'><span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'><span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=72 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'><span lang=EN-US><o:p></o:p></span></span></p>
+  </td></tr>
+<tr style='mso-yfti-irow:14;height:22.85pt'>
+<td width=118 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'><span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'><span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'><span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'><span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=100 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=left style='text-align:left'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'><span lang=EN-US><o:p></o:p></span></span></p>
+  </td><td width=72 style='width:78.4pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:37.15pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'><span lang=EN-US><o:p></o:p></span></span></p>
+  </td></tr>
+</table></div><span lang=EN-US style='font-size:14.0pt;mso-bidi-font-size:12.0pt;font-family:
+仿宋_GB2312;mso-hansi-font-family:'Times New Roman';mso-bidi-font-family:'Times New Roman';
+mso-font-kerning:1.0pt;mso-ansi-language:EN-US;mso-fareast-language:ZH-CN;
+mso-bidi-language:AR-SA'><br clear=all style='page-break-before:always;
+mso-break-type:section-break'></span><div align=center><table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:.5pt solid windowtext;
+ mso-border-insidev:.5pt solid windowtext'><tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td  width=616 style='width:462.0pt;border:solid windowtext 1.0pt;mso-border-alt:
+  solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:15.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>二、项目实施的目的、意义</span></b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:仿宋_GB2312'><span
+  lang=EN-US><o:p></o:p></span></span></p></td></tr> <tr style='mso-yfti-irow:1;height:110pt'>
+  <td  width=616 valign=top style='width:462.0pt;border:solid windowtext 1.0pt;border-top:
+  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:110pt'><p class="MsoNormal">
+	<p class="MsoNormal">
+		<b>项目实施目的</b>：<span></span>
+	</p>
+	<p class="MsoNormal">
+		构建基于注意力多实例学习（<span>MIL</span>）的胃癌病理全切片图像（<span>WSI</span>）分类模型，在仅图像级标签的弱监督条件下，实现胃癌精准分类与癌变区域自动定位，并通过可视化热力图提供模型决策依据，提升病理诊断效率与可信度。<span></span>
+	</p>
+	<p class="MsoNormal">
+		<b>项目意义：</b><b></b>
+	</p>
+	<p class="MsoNormal">
+		<span>1.</span>医疗价值：解决病理图像标注成本高、专家资源稀缺问题，辅助医生快速筛查与定位癌变区域。 <span></span>
+	</p>
+	<p class="MsoNormal">
+		<span>2.</span>技术价值：探索弱监督学习在医疗影像中的落地，提升<span> AI </span>病理诊断的可解释性与临床可用性。 <span></span>
+	</p>
+3.实践价值：为智能医疗、数字病理方向提供可复用的模型与系统原型，助力医工交叉创新。
+</p><p class=MsoNormal><span lang=EN-US><o:p>&nbsp;</o:p></span></p>
+
+  </td></tr><tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td  width=616 style='width:462.0pt;border:solid windowtext 1.0pt;mso-border-alt:
+  solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:15.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>三、项目研究内容和拟解决的关键问题</span></b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:仿宋_GB2312'><span
+  lang=EN-US><o:p></o:p></span></span></p></td></tr> <tr style='mso-yfti-irow:1;height:110pt'>
+  <td  width=616 valign=top style='width:462.0pt;border:solid windowtext 1.0pt;border-top:
+  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:110pt'><p class="MsoNormal">
+	<b>研究内容：</b><b></b>
+</p>
+<p class="MsoNormal" style="margin-left:0cm;text-indent:0cm;">
+	<span>1. </span>多实例学习模型构建
+，采用<span> Attention-based MIL</span>、<span>CLAM</span>、<span>DSMIL </span>等先进架构，将病理图像块特征聚合为切片级分类结果，适配弱监督学习场景。 <span></span>
+</p>
+<p class="MsoNormal" style="margin-left:0cm;text-indent:0cm;">
+	<span>2. </span>弱监督定位与可解释性生成
+利用注意力权重与<span> Grad-CAM </span>生成癌变区域热力图，实现分类结果<span> + </span>定位解释双输出，增强模型可解释性。 <span></span>
+</p>
+<p class="MsoNormal">
+	模型对比与性能优化 在<span> CAMELYON16</span>、<span>TCGA </span>胃癌公开数据集上开展对比实验；引入多尺度特征、自监督预训练提升模型泛化能力与分类精度。 <span></span>
+</p>
+<p class="MsoNormal" style="margin-left:0cm;text-indent:0cm;">
+	<span>3. </span>简易辅助诊断系统开发
+搭建轻量级<span> Web / </span>桌面应用，支持<span> WSI </span>上传、模型推理、结果展示与热力图可视化，形成完整诊断流程。 <span></span>
+</p>
+<p class="MsoNormal">
+	<b>拟解决关键问题：</b><b></b>
+</p>
+<p class="MsoNormal">
+	<span>1.</span>弱监督条件下病理图像特征聚合与精准分类。 <span></span>
+</p>
+<p class="MsoNormal">
+	<span>2.</span>模型决策过程的可视化与可解释性生成。 <span></span>
+</p>
+<p class="MsoNormal">
+	<span>3.</span>模型在不同数据集上的泛化能力与鲁棒性优化。<span></span>
+</p>
+4.轻量级辅助诊断系统的快速部署与推理。<p class=MsoNormal><span lang=EN-US><o:p>&nbsp;</o:p></span></p>
+
+  </td></tr><tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td  width=616 style='width:462.0pt;border:solid windowtext 1.0pt;mso-border-alt:
+  solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:15.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>四、项目研究与实施的基础条件</span></b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:仿宋_GB2312'><span
+  lang=EN-US><o:p></o:p></span></span></p></td></tr> <tr style='mso-yfti-irow:1;height:110pt'>
+  <td  width=616 valign=top style='width:462.0pt;border:solid windowtext 1.0pt;border-top:
+  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:110pt'><p class="MsoNormal">
+	<b>技术能力：</b>
+</p>
+<p class="MsoNormal">
+	1.团队掌握<span> Python</span>、深度学习框架（<span>PyTorch/TensorFlow</span>），熟悉<span> MIL</span>、注意力机制、图像分类、<span>Grad-CAM </span>等算法原理与实现。 <span></span>
+</p>
+<p class="MsoNormal">
+	2.具备病理图像预处理、模型训练、热力图生成所需开源库；可使用<span> CAMELYON16</span>、<span>TCGA </span>等公开数据集。 <span></span>
+</p>
+<p class="MsoNormal">
+	<b>硬件环境：<span></span></b>
+</p>
+支持<span> GPU </span>加速计算的开发设备，满足模型训练与推理需求。 开发平台<span> PyCharm/VSCode</span>、<span>Git</span>、<span>Web </span>框架（<span>Flask/FastAPI</span>）等，支持模型训练与系统开发。<p class=MsoNormal><span lang=EN-US><o:p>&nbsp;</o:p></span></p>
+
+  </td></tr><tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td  width=616 style='width:462.0pt;border:solid windowtext 1.0pt;mso-border-alt:
+  solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:15.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>五、项目实施方案</span></b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:仿宋_GB2312'>（项目实施时间表、人员分工、项目实施保证措施等）<span
+  lang=EN-US><o:p></o:p></span></span></p></td></tr> <tr style='mso-yfti-irow:1;height:110pt'>
+  <td  width=616 valign=top style='width:462.0pt;border:solid windowtext 1.0pt;border-top:
+  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:110pt'><p class="MsoNormal">
+	<b>项目规划： <span></span></b> 
+</p>
+<p class="MsoNormal">
+	第<span> 1</span><span>–</span>3 周：文献调研与技术准备 调研<span> MIL</span>、弱监督分类、病理可解释性文献，确定技术路线；整理<span> CAMELYON16</span>、<span>TCGA </span>数据集；搭建深度学习训练环境与代码框架。<span></span> 
+</p>
+<p class="MsoNormal">
+	第<span> 4</span><span>–</span>6 周：基础<span> MIL </span>模型构建
+复现<span> Attention-based MIL</span>、<span>CLAM</span>、<span>DSMIL </span>架构，完成图像块特征聚合与切片级分类训练。&nbsp;
+</p>
+<p class="MsoNormal">
+	第<span> 7</span><span>–</span>9 周：模型对比与架构优选 开展多模型对比实验，评估分类指标，确定最优基础模型并完成初步调优。 <span></span> 
+</p>
+<p class="MsoNormal">
+	第<span> 10</span><span>–</span>12 周：可解释性与热力图实现 提取注意力权重定位病变区域，集成<span> Grad-CAM </span>生成热力图，实现分类<span> + </span>定位双输出。 <span></span> 
+</p>
+<p class="MsoNormal">
+	第<span> 13</span><span>–</span>16 周：模型优化与性能验证 引入多尺度特征与自监督预训练提升鲁棒性；多数据集验证，确保<span> AUC</span><span>≥</span>0.90 并固化最优模型。 <span></span> 
+</p>
+<p class="MsoNormal">
+	第<span> 17</span><span>–</span>19 周：系统开发与测试完善 开发轻量级辅助诊断系统，完成接口联调、功能测试与界面优化，形成可演示原型。 <span></span> 
+</p>
+<p class="MsoNormal">
+	第<span> 20 </span>周：成果整理与结题 撰写报告、论文与软著材料，汇总成果并准备验收答辩。
+</p>
+<p class="MsoNormal">
+	<strong>项目分工：</strong>
+</p>
+<p class="MsoNormal">
+	大部分内容由全体成员参与开发，在部分大型功能开发时可以分组研究实现 <span></span> 
+</p>
+<p>
+	<strong>项目实施保证措施：</strong>
+</p>
+<p>
+	实行阶段验收制，由指导教师审核通过后进入下一阶段。 使用<span> Git/GitHub </span>进行代码版本管理，实验日志与模型统一归档。 定期组会同步进度、解决技术问题，及时应对风险。 以模型性能与系统可用性为核心，严格把控关键节点质量。
+</p><p class=MsoNormal><span lang=EN-US><o:p>&nbsp;</o:p></span></p>
+
+  </td></tr><tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td  width=616 style='width:462.0pt;border:solid windowtext 1.0pt;mso-border-alt:
+  solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:15.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>六、学校可以提供的条件</span></b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:仿宋_GB2312'> <span
+  lang=EN-US><o:p></o:p></span></span></p></td></tr> <tr style='mso-yfti-irow:1;height:110pt'>
+  <td  width=616 valign=top style='width:462.0pt;border:solid windowtext 1.0pt;border-top:
+  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:110pt'><p class="MsoNormal">
+	<b>学术指导支持：</b><b></b>
+</p>
+<p class="MsoNormal">
+	学校计算机学院、人工智能专业教师可提供深度学习、计算机视觉、医疗影像分析方向的学术指导，帮助解决模型训练、可解释性算法、实验设计等关键技术问题。<span></span>
+</p>
+<p class="MsoNormal">
+	硬件设备支持 ：学校实验室可提供高性能计算机、<span>GPU </span>服务器等硬件资源，满足病理图像数据处理、模型训练、推理加速等计算需求。 <span></span>
+</p>
+<p class="MsoNormal">
+	<b>软件与平台支持：</b><b></b>
+</p>
+<p class="MsoNormal">
+	学校提供<span> PyCharm</span>、<span>VS Code </span>等开发工具许可，支持<span> Python</span>、<span>PyTorch </span>等深度学习环境配置；提供文献数据库、云存储与项目协作平台。<span></span>
+</p>
+<p class="MsoNormal">
+	<b>创新创业支持：</b><b></b>
+</p>
+学校提供大创项目管理、成果申报、论文发表与软著申请指导，为项目成果转化与验收提供政策与流程支持。<p class=MsoNormal><span lang=EN-US><o:p>&nbsp;</o:p></span></p>
+
+  </td></tr><tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td  width=616 style='width:462.0pt;border:solid windowtext 1.0pt;mso-border-alt:
+  solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:15.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>七、预期成果形式</span></b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:仿宋_GB2312'>（论文、调查报告、设计、专利证书、产品、其他）<span
+  lang=EN-US><o:p></o:p></span></span></p></td></tr> <tr style='mso-yfti-irow:1;height:110pt'>
+  <td  width=616 valign=top style='width:462.0pt;border:solid windowtext 1.0pt;border-top:
+  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:110pt'><p class="MsoNormal">
+	<b>核心模型成果：<span></span></b>
+</p>
+<p class="MsoNormal">
+	完成基于注意力多实例学习的胃癌病理图像弱监督分类模型<span> 1 </span>个，实现图像级分类与癌变区域定位，模型<span> AUC</span>≥0.90。 <span></span>
+</p>
+<p class="MsoNormal">
+	<b>系统应用成果：</b>
+</p>
+<p class="MsoNormal">
+	完成轻量级病理图像辅助诊断系统原型<span> 1 </span>套，支持<span> WSI </span>上传、模型推理、结果展示与热力图可视化，可直接演示运行。 <span></span>
+</p>
+<p class="MsoNormal">
+	<b>学术与知识产权成果：</b>
+</p>
+项目结题报告<span> 1 </span>份 学术论文<span> 1 </span>篇（期刊<span> / </span>会议） 计算机软件著作权<span> 1 </span>项 实验与文档成果： 完整实验数据、模型权重、可视化热力图、系统使用说明书、技术开发文档。<p class=MsoNormal><span lang=EN-US><o:p>&nbsp;</o:p></span></p>
+
+  </td></tr><tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td  width=616 style='width:462.0pt;border:solid windowtext 1.0pt;mso-border-alt:
+  solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:15.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>八、经费预算</span></b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:仿宋_GB2312'>（列出详细经费项目及相关预算）<span
+  lang=EN-US><o:p></o:p></span></span></p></td></tr> <tr style='mso-yfti-irow:1;height:110pt'>
+  <td  width=616 valign=top style='width:462.0pt;border:solid windowtext 1.0pt;border-top:
+  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:110pt'><table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 style='margin-top:2px;width:98%;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:.5pt solid windowtext;mso-border-insidev:.5pt solid windowtext'><tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+<td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'><b style='mso-bidi-font-weight:normal'>科　目</b></td>
+<td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'><b style='mso-bidi-font-weight:normal'>金　额</b></td>
+<td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'><b style='mso-bidi-font-weight:normal'>主要用途</b></td></tr><tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'><td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>调研、差旅费</td><td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>2000</td><td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>主要用于项目调研、学术交流和差旅支出</td></tr><tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'><td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>材料费、耗材费</td><td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>2500</td><td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>用于购买存储设备、办公耗材</td></tr><tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'><td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>出版/文献/知识产权费</td><td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>1500</td><td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>用于论文发表、软著申请、文献下载</td></tr><tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'><td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>文印、图书资料费</td><td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>1000</td><td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>用于项目材料打印、专业图书购买</td></tr><tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'><td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>校外人员劳务费</td><td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>2000</td><td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>用于校外专家指导、数据标注劳务</td></tr><tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'><td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>其它</td><td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>1000</td><td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>用于项目相关杂项支出</td></tr><tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'><td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+                合计：</td><td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>￥10000</td><td style='border:solid windowtext 1.0pt;mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'></td></tr></table><p class=MsoNormal><span lang=EN-US><o:p>&nbsp;</o:p></span></p>
+
+  </td></tr><tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td  width=616 style='width:462.0pt;border:solid windowtext 1.0pt;mso-border-alt:
+  solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-size:15.0pt;mso-bidi-font-size:10.0pt;font-family:宋体'>申请人承诺</span></b><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:仿宋_GB2312'><span
+  lang=EN-US><o:p></o:p></span></span></p></td></tr> <tr style='mso-yfti-irow:1;height:85.55pt'>
+  <td  width=616 valign=top style='width:462.0pt;border:solid windowtext 1.0pt;border-top:
+  none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:85.55pt'><p class=MsoBodyText style='margin-bottom:7.8pt'><span lang=EN-US
+  style='font-weight:normal'><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;
+  </span></span><span style='font-family:宋体;mso-ascii-font-family:'Times New Roman';
+  mso-hansi-font-family:'Times New Roman';font-weight:normal'>本人保证以上填报内容的真实性。如果获得立项，本人（以及项目组成员）将严格遵守《大学生创新创业训练计划项目管理办法》及其它相关规定，严肃、认真地实施项目计划，严格执行审批的项目经费预算并按要求及时报送有关材料。</span><span
+  lang=EN-US style='font-weight:normal'><o:p></o:p></span></p>
+  <p class=MsoBodyText style='margin-bottom:7.8pt;text-indent:21.0pt;
+  mso-char-indent-count:1.75'><span lang=EN-US style='font-weight:normal'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoBodyText align=center style='text-align:center;text-indent:28.0pt'><span
+  lang=EN-US style='font-weight:normal'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='font-family:宋体;mso-ascii-font-family:'Times New Roman';
+  mso-hansi-font-family:'Times New Roman';font-weight:normal'>申报人（签字）：</span><span
+  lang=EN-US style='font-weight:normal'><o:p></o:p></span></p>
+  <p class=MsoBodyText align=center style='text-align:center;text-indent:28.0pt'><span
+  lang=EN-US style='font-weight:normal'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='font-family:宋体;mso-ascii-font-family:'Times New Roman';
+  mso-hansi-font-family:'Times New Roman';font-weight:normal'>年</span><span
+  lang=EN-US style='font-weight:normal'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><span style='font-family:
+  宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';
+  font-weight:normal'>月</span><span lang=EN-US style='font-weight:normal'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp; </span></span><span style='font-family:
+  宋体;mso-ascii-font-family:'Times New Roman';mso-hansi-font-family:'Times New Roman';
+  font-weight:normal'>日</span><span lang=EN-US style='font-weight:normal'><o:p></o:p></span></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:仿宋_GB2312'><o:p>&nbsp;</o:p></span></b></p></td></tr><tr style='mso-yfti-irow:14;height:47.0pt'>
+  <td  width=616 valign=top style='width:462.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:47.0pt'>
+  <p class=MsoNormal style='margin-top:7.8pt;mso-para-margin-top:.5gd'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:15.0pt;mso-bidi-font-size:
+  10.0pt;font-family:宋体'>指导教师意见：<span lang=EN-US><o:p></o:p></span></span></b></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:仿宋_GB2312'><o:p>&nbsp;</o:p></span></p>思路清晰，具备可行性，通过<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:仿宋_GB2312'><o:p>&nbsp;</o:p></span></p>
+<p class=MsoNormal style='margin-bottom:7.8pt;mso-para-margin-bottom:.5gd;
+  tab-stops:293.1pt 336.6pt'><span lang=EN-US style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;font-family:仿宋_GB2312'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  font-family:仿宋_GB2312'>签  字：<span lang=EN-US><o:p></o:p></span></span></p>
+  <p class=MsoNormal style='margin-bottom:7.8pt;mso-para-margin-bottom:.5gd;
+  tab-stops:293.1pt 336.6pt'><span lang=EN-US style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;font-family:仿宋_GB2312'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=right style='margin-bottom:7.8pt;mso-para-margin-bottom:
+  .5gd;text-align:right'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:仿宋_GB2312'><span style='mso-spacerun:yes'>&nbsp;</span></span><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:仿宋_GB2312'>2026年<span
+  lang=EN-US><span style='mso-spacerun:yes'>&nbsp;&nbsp; </span><span
+  style='mso-spacerun:yes'>&nbsp;</span></span>4月<span lang=EN-US><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span></span>2日<span lang=EN-US><o:p></o:p></span></span></p>
+  </td></tr><tr style='mso-yfti-irow:14;height:47.0pt'>
+  <td  width=616 valign=top style='width:462.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:47.0pt'>
+  <p class=MsoNormal style='margin-top:7.8pt;mso-para-margin-top:.5gd'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:15.0pt;mso-bidi-font-size:
+  10.0pt;font-family:宋体'>学院审核意见：<span lang=EN-US><o:p></o:p></span></span></b></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:仿宋_GB2312'><o:p>&nbsp;</o:p></span></p><span>项目符合大学生创新创业项目的特点，同意申报。</span><p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:仿宋_GB2312'><o:p>&nbsp;</o:p></span></p>
+<p class=MsoNormal style='margin-bottom:7.8pt;mso-para-margin-bottom:.5gd;
+  tab-stops:293.1pt 336.6pt'><span lang=EN-US style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;font-family:仿宋_GB2312'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  font-family:仿宋_GB2312'>负责人签字（公章）：<span lang=EN-US><o:p></o:p></span></span></p>
+  <p class=MsoNormal style='margin-bottom:7.8pt;mso-para-margin-bottom:.5gd;
+  tab-stops:293.1pt 336.6pt'><span lang=EN-US style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;font-family:仿宋_GB2312'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=right style='margin-bottom:7.8pt;mso-para-margin-bottom:
+  .5gd;text-align:right'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:仿宋_GB2312'><span style='mso-spacerun:yes'>&nbsp;</span></span><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:仿宋_GB2312'>2026年<span
+  lang=EN-US><span style='mso-spacerun:yes'>&nbsp;&nbsp; </span><span
+  style='mso-spacerun:yes'>&nbsp;</span></span>4月<span lang=EN-US><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span></span>4日<span lang=EN-US><o:p></o:p></span></span></p>
+  </td></tr><tr style='mso-yfti-irow:14;height:47.0pt'>
+  <td  width=616 valign=top style='width:462.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:47.0pt'>
+  <p class=MsoNormal style='margin-top:7.8pt;mso-para-margin-top:.5gd'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:15.0pt;mso-bidi-font-size:
+  10.0pt;font-family:宋体'>学校评审意见：<span lang=EN-US><o:p></o:p></span></span></b></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:仿宋_GB2312'><o:p>&nbsp;</o:p></span></p><p class=MsoNormal style='margin-top:7.8pt;mso-para-margin-top:.5gd'><b
+  style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;font-family:仿宋_GB2312'><o:p>&nbsp;</o:p></span></b></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:仿宋_GB2312'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:仿宋_GB2312'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:仿宋_GB2312'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:仿宋_GB2312'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:仿宋_GB2312'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:仿宋_GB2312'><o:p>&nbsp;</o:p></span></p>
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:仿宋_GB2312'><o:p>&nbsp;</o:p></span></p>
+<p class=MsoNormal style='margin-bottom:7.8pt;mso-para-margin-bottom:.5gd;
+  tab-stops:293.1pt 336.6pt'><span lang=EN-US style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;font-family:仿宋_GB2312'><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+  font-family:仿宋_GB2312'>负责人签字（公章）：<span lang=EN-US><o:p></o:p></span></span></p>
+  <p class=MsoNormal style='margin-bottom:7.8pt;mso-para-margin-bottom:.5gd;
+  tab-stops:293.1pt 336.6pt'><span lang=EN-US style='font-size:12.0pt;
+  mso-bidi-font-size:10.0pt;font-family:仿宋_GB2312'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal align=right style='margin-bottom:7.8pt;mso-para-margin-bottom:
+  .5gd;text-align:right'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+  10.0pt;font-family:仿宋_GB2312'><span style='mso-spacerun:yes'>&nbsp;</span></span><span
+  style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:仿宋_GB2312'>年<span
+  lang=EN-US><span style='mso-spacerun:yes'>&nbsp;&nbsp; </span><span
+  style='mso-spacerun:yes'>&nbsp;</span></span>月<span lang=EN-US><span
+  style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span></span>日<span lang=EN-US><o:p></o:p></span></span></p>
+  </td></tr></table></div></div></body></html>
